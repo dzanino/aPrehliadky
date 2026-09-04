@@ -154,9 +154,17 @@
     <h3>Nevidím model</h3>
     <p>Sken → <em>Diagnostika</em> → <em>Otvoriť v systémovom prehliadači</em>. Ak model existuje, systémový prehliadač ho zobrazí vždy. Ak nie, pošlite protokol výpočtu.</p>
     <h3>Ako merať?</h3>
-    <p>V prehliadke ťuknite na dva body na povrchu — vzdialenosť v mm. Dĺžka tela: temeno a päta. Vzdialenosť tela od predmetu: rozsah rekonštrukcie <em>Subjekt s okolím</em> alebo <em>Celá scéna</em>. Etalón: zmerajte škálu terča a zadajte 100 mm.</p>
+    <p>V prehliadke (režim <em>Merať</em>) ťuknite na dva body na povrchu — vzdialenosť; <em>Dráha</em> sa sčítava po povrchu (dĺžka rany, obvod), <em>Plocha</em> z bodov po obvode. Dĺžka tela: temeno a päta. Vzdialenosť tela od predmetu: rozsah rekonštrukcie <em>Subjekt s okolím</em> alebo <em>Celá scéna</em>. Etalón: zmerajte škálu terča a zadajte 100 mm.</p>
     <h3>Kde sú exporty?</h3>
     <p>Súbory → Na mojom iPhone → aPrehliadky → Exporty (balík, protokol PDF, USDZ). Archív má vlastný podpriečinok.</p>
+    <h3>Ako označovať nálezy?</h3>
+    <p>V prehliadke prepnite dolný panel na <em>Označiť nález</em>, vyberte typ (poranenie, znak, škvrna, odber, iné) a ťukajte na povrch — každé ťuknutie pridá očíslovaný špendlík. Názov a popis doplníte ťuknutím na špendlík; „Späť“ zruší posledný. V režime <em>Merať</em> ťuknutia pridávajú body merania.</p>
+    <h3>Čo je Okolie z LiDARu?</h3>
+    <p>S LiDARom aplikácia počas snímania ukladá aj mesh miestnosti z ARKitu (podlaha, steny, strop, stôl, dvere) ako druhý, metrický model bez textúry. Otvoríte ho v skene pod <em>Okolie z LiDARu</em>; má vlastné nálezy a merania. Ak chcete celú miestnosť, po obídení subjektu pomaly prejdite kamerou po stenách a podlahe.</p>
+    <h3>Ako zmením jednotky?</h3>
+    <p>ⓘ → Nastavenia → Jednotky merania: mm, cm, dm, m, palce, stopy. Prepočet je presný; v balíku a v protokole sú hodnoty vždy uložené v mm.</p>
+    <h3>Funguje aj na Macu?</h3>
+    <p>Áno, na Macu s Apple Silicon (App Store → Mac, aplikácia „Designed for iPad“). Snímanie na Macu nie je možné; balík <code>.aprehliadka</code> z iPhonu otvoríte dvojklikom, k dispozícii je prehliadka, meranie, nálezy, výpočet aj protokol. Pri exporte použite „Uložiť do…“.</p>
     <h3>Donor — nepovinný poplatok</h3>
     <p>Aplikácia je bezplatná a plne funkčná bez obmedzení. Kto chce, môže sa stať donorom cez In-App Purchase Apple v pevných sumách od kávy po ročného donora (App Store neumožňuje ľubovoľnú sumu). Nič neodomyká.</p>
     <h3>ePrehliadky</h3>
@@ -190,6 +198,14 @@
     <p>In the viewer, tap two points on the surface — distance in mm. Body length: crown and heel. Distance from an object: reconstruction extent <em>Subject with surroundings</em> or <em>Whole scene</em>. Reference: measure the target scale and enter 100 mm.</p>
     <h3>Where are the exports?</h3>
     <p>Files → On My iPhone → aPrehliadky → Exporty (package, PDF report, USDZ). The archive has its own subfolder.</p>
+    <h3>How do I mark findings?</h3>
+    <p>In the viewer switch the bottom panel to <em>Mark finding</em>, choose a type (injury, mark, livor, sample, other) and tap the surface — every tap adds a numbered pin. Tap the pin to add a title and note; “Undo” removes the last one. In <em>Measure</em> mode taps add measurement points.</p>
+    <h3>What is Surroundings from LiDAR?</h3>
+    <p>With LiDAR the app also stores the ARKit room mesh during capture (floor, walls, ceiling, table, door) as a second, metric, untextured model. Open it in the scan under <em>Surroundings from LiDAR</em>; it has its own findings and measurements. To capture the whole room, sweep the camera slowly over the walls and floor after circling the subject.</p>
+    <h3>How do I change units?</h3>
+    <p>ⓘ → Settings → Measurement units: mm, cm, dm, m, inches, feet. The conversion is exact; the package and the report always store values in mm.</p>
+    <h3>Does it work on a Mac?</h3>
+    <p>Yes, on a Mac with Apple Silicon (App Store → Mac, “Designed for iPad” app). Capture is not possible on the Mac; double-click an <code>.aprehliadka</code> package from the iPhone to open it — examination, measuring, findings, processing and the report are available. Use “Save to…” when exporting.</p>
     <h3>Donor — optional fee</h3>
     <p>The app is free and fully functional with no limits. Anyone who wishes can become a donor through Apple In-App Purchase in fixed amounts from a coffee to an annual donor (the App Store does not allow arbitrary amounts). It unlocks nothing.</p>
     <h3>ePrehliadky</h3>
