@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aPrehliadky — 3D dokumentácia tela a predmetov · Forensika</title>
+<meta name="description" content="aPrehliadky — fotogrametrické 3D snímanie tela a predmetov s LiDARom, meranie v mm, nálezy, protokol. Všetko v telefóne, bez cloudu. / Photogrammetric 3D body and object capture with LiDAR, on-device.">
+<meta property="og:title" content="aPrehliadky — 3D dokumentácia tela a predmetov · Forensika">
+<meta property="og:description" content="aPrehliadky — fotogrametrické 3D snímanie tela a predmetov s LiDARom, meranie v mm, nálezy, protokol. Všetko v telefóne, bez cloudu. / Photogrammetric 3D body and object capture with LiDAR, on-device.">
+<meta property="og:image" content="icon-512.png">
+<link rel="icon" href="icon-512.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  :root{--ink:#274863;--ink-2:#22415C;--ink-3:#132A3D;--muted:#6b7f93;--paper:#f5f8fc;--paper-2:#eaf1f8;--card:#fff;--line:#e2eaf2;
+    --teal:#4FCBBB;--blue:#66B0E8;--violet:#8E86EC;--lila:#C79BE2;--cyan:#59d6ec;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Helvetica Neue',Arial,sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;line-height:1.55}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px}
+  header{position:sticky;top:0;z-index:50;background:rgba(245,248,252,.86);backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:600;font-size:19px}
+  .brand .mark{width:36px;height:36px;border-radius:22%;display:block}
+  .brand .accent{background:linear-gradient(90deg,var(--teal),var(--blue) 55%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav .links{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+  .nav .links a{font-size:13.5px;font-weight:600;color:var(--ink);border:1px solid var(--line);padding:7px 13px;border-radius:999px;background:#fff;transition:.2s}
+  .nav .links a:hover,.nav .links a.on{border-color:var(--blue);color:var(--blue)}
+  .hero{position:relative;overflow:hidden;color:#fff;text-align:center;padding:64px 0 70px;
+    background:radial-gradient(900px 500px at 50% -20%,rgba(89,214,236,.30),transparent 60%),linear-gradient(160deg,#1c3a55,#0b1a2a)}
+  .hero img.app{width:132px;height:132px;border-radius:26%;margin:0 auto 22px;display:block;box-shadow:0 22px 50px rgba(8,20,32,.5)}
+  .kicker{font-size:12px;letter-spacing:4px;font-weight:600;color:#9fd8e6;text-transform:uppercase;margin-bottom:16px}
+  .hero h1{font-size:clamp(34px,6.5vw,58px);font-weight:700;letter-spacing:.3px;line-height:1.04;margin-bottom:12px}
+  .hero h1 .accent{background:linear-gradient(90deg,var(--cyan),var(--blue) 55%,var(--lila));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lede{font-size:clamp(16px,2.4vw,20px);color:#d7e6f2;max-width:46ch;margin:0 auto 26px}
+  .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn-primary{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15px;color:#0d2536;background:linear-gradient(90deg,var(--cyan),var(--blue));padding:12px 24px;border-radius:999px;transition:.2s;box-shadow:0 10px 26px rgba(89,214,236,.32)}
+  .btn-primary:hover{transform:translateY(-1px)}
+  .btn-ghost{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15px;color:#eaf3fb;border:1px solid rgba(255,255,255,.3);padding:12px 22px;border-radius:999px;transition:.2s}
+  .btn-ghost:hover{background:rgba(255,255,255,.08)}
+  .wave{height:30px;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--violet),var(--lila))}
+  main{padding:56px 0 30px}
+  .lang{display:flex;justify-content:center;gap:10px;margin-bottom:34px}
+  .lang a{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:#fff}
+  .lang a:hover{color:var(--blue);border-color:var(--blue)}
+  section.block{margin-bottom:56px}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 34px}
+  .sec-head .tag{font-size:12px;letter-spacing:3px;font-weight:700;color:var(--blue);text-transform:uppercase}
+  .sec-head h2{font-size:clamp(26px,4vw,36px);font-weight:700;margin:8px 0 10px}
+  .sec-head p{color:#5c7186;font-size:16px}
+  .grid{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:980px){.grid.three{grid-template-columns:repeat(3,1fr)}}
+  .d{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;transition:.2s}
+  .d:hover{border-color:#bcd3e9;box-shadow:0 14px 30px rgba(19,42,61,.08);transform:translateY(-2px)}
+  .d .ico{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;margin-bottom:12px;background:linear-gradient(150deg,#eaf4fb,#e3f7fa)}
+  .d .ico svg{width:21px;height:21px;fill:none;stroke:#2f7fae;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .d h3{font-size:16px;font-weight:700;margin-bottom:6px}
+  .d p{color:#5d7186;font-size:14.5px;line-height:1.55}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px;box-shadow:0 1px 2px rgba(19,42,61,.03)}
+  .card h2{font-size:22px;margin-bottom:14px}
+  .card h3{font-size:16px;margin:20px 0 8px}
+  .card p,.card li{color:#4d647a;font-size:15.5px;line-height:1.65}
+  .card ul{padding-left:22px}
+  .card li+li{margin-top:6px}
+  .card a{color:var(--blue);font-weight:600}
+  .card a:hover{text-decoration:underline}
+  .card hr{border:none;border-top:1px solid var(--line);margin:26px 0}
+  .card .muted{color:#8a99ab;font-size:.85rem}
+  .note{background:var(--paper-2);border-left:4px solid var(--blue);padding:12px 16px;border-radius:10px;color:#3d5a74;font-size:14.5px;margin:14px 0}
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+  .pill{font-size:12px;font-weight:600;color:#3d5a74;background:var(--paper-2);border:1px solid var(--line);padding:5px 11px;border-radius:999px}
+  footer{border-top:1px solid var(--line);padding:34px 0;background:#fff}
+  .foot{display:flex;flex-direction:column;gap:10px;font-size:14px;color:#5d7186;text-align:center}
+  .foot a{color:var(--blue);font-weight:600}
+  @media(max-width:560px){.hero{padding:48px 0 56px}.hero img.app{width:100px;height:100px}.card{padding:22px}}
+</style>
+</head>
+<body id="top">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#2A4E70"/><stop offset="1" stop-color="#132A3D"/>
+    </linearGradient>
+    <radialGradient id="glassI" cx="36%" cy="26%" r="85%">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="0.52" stop-color="#EDF2F8"/><stop offset="1" stop-color="#C9D7E5"/>
+    </radialGradient>
+    <linearGradient id="pc" gradientUnits="userSpaceOnUse" x1="-80" y1="0" x2="6" y2="0">
+      <stop offset="0" stop-color="#3FB4AC"/><stop offset="1" stop-color="#4C8CCF"/>
+    </linearGradient>
+    <filter id="blurC" x="-40%" y="-70%" width="180%" height="240%"><feGaussianBlur stdDeviation="3.4"/></filter>
+    <clipPath id="lensI"><circle cx="0" cy="0" r="92"/></clipPath>
+    <symbol id="forensika-icon" viewBox="0 0 512 512">
+      <rect x="0" y="0" width="512" height="512" rx="116" fill="url(#bg)"/>
+      <g transform="translate(256,248)">
+        <circle cx="0" cy="6" r="118" fill="#0C1E2E" opacity="0.28"/>
+        <circle cx="0" cy="0" r="92" fill="url(#glassI)"/>
+        <circle cx="0" cy="0" r="90" fill="none" stroke="#16324A" stroke-width="2.5" opacity="0.10"/>
+        <g clip-path="url(#lensI)">
+          <ellipse cx="-40" cy="-46" rx="44" ry="25" fill="#FFFFFF" opacity="0.5" transform="rotate(-28 -40 -46)"/>
+          <path d="M -84 18 L -68 18 L -61 5 L -54 18 L -42 18 L -35 31 L -26 -56 L -17 41 L -9 18 L 2 18"
+                fill="none" stroke="url(#pc)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" filter="url(#blurC)"/>
+          <path d="M 8 18 H 86" fill="none" stroke="#5C7EA3" stroke-width="11" stroke-linecap="round" stroke-dasharray="0.5 20"/>
+        </g>
+        <circle cx="0" cy="0" r="118" fill="none" stroke="#F4F8FC" stroke-width="15"/>
+        <rect x="80" y="80" width="64" height="21" rx="10.5" transform="rotate(45 80 80)" fill="#F4F8FC"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="https://forensika.eu"><svg class="mark"><use href="#forensika-icon"/></svg><span><b>Forens</b><span class="accent">ika</span></span></a>
+    <nav class="links">
+      <a href="index.html" class="on">aPrehliadky</a>
+      <a href="support.html">Podpora · Support</a>
+      <a href="privacy.html">Súkromie · Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <img class="app" src="icon-512.png" alt="aPrehliadky">
+    <div class="kicker">Forensika · 3D dokumentácia</div>
+    <h1>a<span class="accent">Prehliadky</span></h1>
+    <p class="lede">Fotogrametrické 3D snímanie tela a predmetov s LiDARom. Meranie v milimetroch, nálezy, protokol — všetko v telefóne, bez cloudu.</p>
+    <div class="btns">
+      <a class="btn-primary" href="#sk">Slovensky</a>
+      <a class="btn-ghost" href="#en">English</a>
+      <a class="btn-ghost" href="support.html">Podpora · Support</a>
+    </div>
+  </div>
+</section>
+<div class="wave"></div>
+
+<main class="wrap">
+
+<section class="block" id="sk">
+  <div class="sec-head">
+    <div class="tag">Slovensky</div>
+    <h2>Sken, ktorý sa dá merať a obhájiť</h2>
+    <p>aPrehliadky vznikli pre obhliadku mŕtveho tela, no zvládnu aj živú osobu či predmet — kameň, nástroj, stopu.</p>
+  </div>
+  <div class="grid three">
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 7V5a1 1 0 0 1 1-1h2M17 4h2a1 1 0 0 1 1 1v2M20 17v2a1 1 0 0 1-1 1h-2M7 20H5a1 1 0 0 1-1-1v-2"/><circle cx="12" cy="12" r="3.5"/></svg></div><h3>LiDAR + fotogrametria</h3><p>Ku každému snímku hĺbka a gravitácia — model vzniká v metroch. Bez LiDARu dodá mierku trajektória ARKitu a kalibračný terč.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><h3>Meranie v mm</h3><p>Dva body na povrchu, vzdialenosť v milimetroch. Etalón známej dĺžky overí mierku celého modelu — odchýlka ide do protokolu.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 0 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Nálezy na modeli</h3><p>Číslované špendlíky s typom a popisom — poranenie, znak, posmrtná škvrna, odber. Presúvateľné, editovateľné, v protokole.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>Protokol PDF</h3><p>Prípad, obhliadajúci, parametre snímania, overenie mierky, nálezy, merania, integrita a SHA-256 modelu — príloha do spisu.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Balík s hashmi</h3><p>Export <code>.aprehliadka</code> so SHA-256 každého súboru. Import overí, či bol balík zmenený. Archív pre spis, deep link pre ePrehliadky.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><path d="M14 14h3v3M21 21h-3v-3"/></svg></div><h3>Kalibračný terč</h3><p>Tlačový terč: QR 40 mm na mierku, L-škála 100 mm čitateľná v textúre, sivé polia na vyváženie bielej a expozíciu.</p></div>
+  </div>
+  <div class="pills">
+    <span class="pill">100 % on-device</span><span class="pill">bez účtu · bez cloudu</span><span class="pill">iPhone Pro s LiDARom (odporúčané)</span><span class="pill">iOS 18+</span><span class="pill">USDZ · PDF · ZIP</span><span class="pill">slovensky · anglicky</span>
+  </div>
+  <div class="note">Aplikácia je bezplatná a taká zostane. Dobrovoľný príspevok cez App Store nič neodomyká. Nástroj na dokumentáciu podporuje odborný úsudok, nenahrádza ho.</div>
+</section>
+
+<section class="block" id="en">
+  <div class="sec-head">
+    <div class="tag">English</div>
+    <h2>A scan you can measure and defend</h2>
+    <p>aPrehliadky was built for post-mortem examinations, but handles a living person or an object — a stone, a tool, a trace — just as well.</p>
+  </div>
+  <div class="grid three">
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 7V5a1 1 0 0 1 1-1h2M17 4h2a1 1 0 0 1 1 1v2M20 17v2a1 1 0 0 1-1 1h-2M7 20H5a1 1 0 0 1-1-1v-2"/><circle cx="12" cy="12" r="3.5"/></svg></div><h3>LiDAR + photogrammetry</h3><p>Depth and gravity for every frame — the model is built in meters. Without LiDAR, the ARKit trajectory and a calibration target provide scale.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><h3>Measure in mm</h3><p>Two points on the surface, distance in millimetres. A reference of known length verifies the scale of the whole model — the deviation goes into the report.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 0 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Findings on the model</h3><p>Numbered pins with type and description — injury, mark, livor mortis, sample. Movable, editable, in the report.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>PDF report</h3><p>Case, examiner, capture parameters, scale verification, findings, measurements, integrity and the SHA-256 of the model — an attachment for the file.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Hashed package</h3><p>Export <code>.aprehliadka</code> with a SHA-256 of every file. Import verifies whether the package was modified. Archive for the case file, deep link for ePrehliadky.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><path d="M14 14h3v3M21 21h-3v-3"/></svg></div><h3>Calibration target</h3><p>Printable target: a 40 mm QR for scale, a 100 mm L-scale legible in the texture, grey patches for white balance and exposure.</p></div>
+  </div>
+  <div class="pills">
+    <span class="pill">100 % on-device</span><span class="pill">no account · no cloud</span><span class="pill">iPhone Pro with LiDAR (recommended)</span><span class="pill">iOS 18+</span><span class="pill">USDZ · PDF · ZIP</span><span class="pill">Slovak · English</span>
+  </div>
+  <div class="note">The app is free and will stay free. A voluntary contribution through the App Store unlocks nothing. A documentation tool that supports professional judgement and does not replace it.</div>
+</section>
+
+<section class="block">
+  <div class="card">
+    <h2>Autor · Author</h2>
+    <p><strong>MUDr. Ján Šikuta, PhD., súdny lekár</strong> · forensic pathologist</p>
+    <p>Ďalšie aplikácie: <a href="https://forensika.eu">4n6 Šikuta Tools</a> · <a href="https://forensika.eu">Colorime3ka</a> · <a href="https://forensika.eu">littlEye AI</a> — všetky bez sieťovej vrstvy, každá metóda uvádza svoj zdroj.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><a href="https://forensika.eu"><b>Forens</b>ika</a> — veda na pomedzí medicíny, chémie, biológie a antropológie: skúma, zdieľa a spája poznatky pre rozvoj odboru.</div>
+    <div>© 2026 MUDr. Ján Šikuta, PhD., súdny lekár · <a href="mailto:jansikuta@me.com">jansikuta@me.com</a> · <a href="https://forensika.eu">forensika.eu</a></div>
+  </div>
+</footer>
+</body>
+</html>
