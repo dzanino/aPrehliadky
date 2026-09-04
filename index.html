@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>aPrehliadky — 3D dokumentácia tela a predmetov · Forensika</title>
-<meta name="description" content="aPrehliadky — fotogrametrické 3D snímanie tela a predmetov s LiDARom, meranie v mm, nálezy, protokol. Možný doplnok k ePrehliadkam (ÚDZS). Všetko v telefóne, bez cloudu. / Photogrammetric 3D body and object capture with LiDAR, on-device.">
+<meta name="description" content="aPrehliadky — fotogrametrické 3D snímanie tela a predmetov s LiDARom, meranie (mm, cm, m, in), dráha po povrchu, nálezy, protokol, LiDAR mesh miestnosti. Bez cloudu, bez NeRF/3DGS. iPhone, iPad, Mac. Možný doplnok k ePrehliadkam (ÚDZS). / Photogrammetric 3D body and object capture with LiDAR, on-device, no AI reconstruction; iPhone, iPad, Mac.">
 <meta property="og:title" content="aPrehliadky — 3D dokumentácia tela a predmetov · Forensika">
 <meta property="og:description" content="aPrehliadky — fotogrametrické 3D snímanie tela a predmetov s LiDARom, meranie v mm, nálezy, protokol. Všetko v telefóne, bez cloudu. / Photogrammetric 3D body and object capture with LiDAR, on-device.">
 <meta property="og:image" content="icon-512.png">
@@ -124,7 +124,7 @@
     <img class="app" src="icon-512.png" alt="aPrehliadky">
     <div class="kicker">Forensika · 3D dokumentácia</div>
     <h1>a<span class="accent">Prehliadky</span></h1>
-    <p class="lede">Fotogrametrické 3D snímanie tela a predmetov s LiDARom. Meranie v milimetroch, nálezy, protokol — všetko v telefóne, bez cloudu.</p>
+    <p class="lede">Fotogrametrické 3D snímanie tela a predmetov s LiDARom. Meranie, nálezy, protokol, okolie z LiDARu — všetko v zariadení, bez cloudu a bez AI dopočtu. iPhone sníma, Mac reviduje.</p>
     <div class="btns">
       <a class="btn-primary" href="#sk">Slovensky</a>
       <a class="btn-ghost" href="#en">English</a>
@@ -146,14 +146,17 @@
   </div>
   <div class="grid three">
     <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 7V5a1 1 0 0 1 1-1h2M17 4h2a1 1 0 0 1 1 1v2M20 17v2a1 1 0 0 1-1 1h-2M7 20H5a1 1 0 0 1-1-1v-2"/><circle cx="12" cy="12" r="3.5"/></svg></div><h3>LiDAR + fotogrametria</h3><p>Ku každému snímku hĺbka a gravitácia — model vzniká v metroch. Bez LiDARu dodá mierku trajektória ARKitu a kalibračný terč.</p></div>
-    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><h3>Meranie v mm</h3><p>Dva body na povrchu, vzdialenosť v milimetroch. Etalón známej dĺžky overí mierku celého modelu — odchýlka ide do protokolu.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><h3>Meranie na povrchu</h3><p>Vzdialenosť, <strong>dráha po povrchu</strong> (sleduje aj zakrivené telo), plocha podliatiny, objem. Jednotky mm · cm · dm · m · in · ft s presným prepočtom. Etalón známej dĺžky overí mierku — odchýlka ide do protokolu.</p></div>
     <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 0 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Nálezy na modeli</h3><p>Číslované špendlíky s typom a popisom — poranenie, znak, posmrtná škvrna, odber. Presúvateľné, editovateľné, v protokole.</p></div>
-    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>Protokol PDF</h3><p>Prípad, obhliadajúci, parametre snímania, overenie mierky, nálezy, merania, integrita a SHA-256 modelu — príloha do spisu.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>Protokol PDF</h3><p>Prípad, obhliadajúci, parametre snímania, vyhlásenie o metóde, overenie mierky, nálezy, merania, okolie z LiDARu, integrita a SHA-256 — príloha do spisu.</p></div>
     <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Balík s hashmi</h3><p>Export <code>.aprehliadka</code> so SHA-256 každého súboru. Import overí, či bol balík zmenený. Archív pre spis, deep link pre ePrehliadky.</p></div>
     <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><path d="M14 14h3v3M21 21h-3v-3"/></svg></div><h3>Kalibračný terč</h3><p>Tlačový terč: QR 40 mm na mierku, L-škála 100 mm čitateľná v textúre, sivé polia na vyváženie bielej a expozíciu.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-5 9 5v10l-9 5-9-5z"/><path d="M3 9l9 5 9-5M12 14v10"/></svg></div><h3>Okolie z LiDARu</h3><p>Mesh miestnosti nameraný LiDARom počas snímania — podlaha, steny, strop, stôl, dvere. Druhý, metrický model bez textúry: poloha tela v priestore, vzdialenosti od stien a predmetov.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 12h16M12 4v16"/></svg></div><h3>Namerané, nie dopočítané</h3><p>Klasická fotogrametria a LiDAR. Žiadny NeRF, 3D Gaussian Splatting ani AI dopočet geometrie — model vzniká len z nasnímaných dát a protokol to výslovne uvádza.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3>iPhone sníma, Mac reviduje</h3><p>Balík <code>.aprehliadka</code> otvoríte aj na Macu (Apple Silicon): prehliadka, meranie, nálezy, výpočet a protokol. Snímanie zostáva na iPhone alebo iPade s LiDARom.</p></div>
   </div>
   <div class="pills">
-    <span class="pill">100 % on-device</span><span class="pill">bez účtu · bez cloudu</span><span class="pill">okolie z LiDARu (mesh miestnosti)</span><span class="pill">iPhone Pro s LiDARom (odporúčané)</span><span class="pill">iOS 18+</span><span class="pill">USDZ · PDF · ZIP</span><span class="pill">slovensky · anglicky</span>
+    <span class="pill">100 % on-device</span><span class="pill">bez účtu · bez cloudu</span><span class="pill">okolie z LiDARu (mesh miestnosti)</span><span class="pill">iPhone Pro s LiDARom (odporúčané)</span><span class="pill">iOS 18+ · iPadOS · macOS (Apple Silicon)</span><span class="pill">USDZ · USDA · PDF · ZIP</span><span class="pill">mm · cm · dm · m · in · ft</span><span class="pill">bez NeRF / 3DGS</span><span class="pill">slovensky · anglicky</span>
   </div>
   <div class="note">Aplikácia je bezplatná a plne funkčná bez obmedzení. Kto chce, môže sa stať donorom — nepovinný jednorazový poplatok cez App Store, nič neodomyká. Nástroj na dokumentáciu podporuje odborný úsudok, nenahrádza ho. Navrhnutá ako <a href="#eprehliadky">doplnok k ePrehliadkam (ÚDZS)</a>.</div>
 </section>
@@ -166,18 +169,44 @@
   </div>
   <div class="grid three">
     <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 7V5a1 1 0 0 1 1-1h2M17 4h2a1 1 0 0 1 1 1v2M20 17v2a1 1 0 0 1-1 1h-2M7 20H5a1 1 0 0 1-1-1v-2"/><circle cx="12" cy="12" r="3.5"/></svg></div><h3>LiDAR + photogrammetry</h3><p>Depth and gravity for every frame — the model is built in meters. Without LiDAR, the ARKit trajectory and a calibration target provide scale.</p></div>
-    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><h3>Measure in mm</h3><p>Two points on the surface, distance in millimetres. A reference of known length verifies the scale of the whole model — the deviation goes into the report.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><h3>Measure on the surface</h3><p>Distance, <strong>path along the surface</strong> (follows a curved body), area of a bruise, volume. Units mm · cm · dm · m · in · ft with exact conversion. A reference of known length verifies the scale — the deviation goes into the report.</p></div>
     <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 0 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Findings on the model</h3><p>Numbered pins with type and description — injury, mark, livor mortis, sample. Movable, editable, in the report.</p></div>
-    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>PDF report</h3><p>Case, examiner, capture parameters, scale verification, findings, measurements, integrity and the SHA-256 of the model — an attachment for the file.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>PDF report</h3><p>Case, examiner, capture parameters, method statement, scale verification, findings, measurements, surroundings from LiDAR, integrity and SHA-256 — an attachment for the file.</p></div>
     <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Hashed package</h3><p>Export <code>.aprehliadka</code> with a SHA-256 of every file. Import verifies whether the package was modified. Archive for the case file, deep link for ePrehliadky.</p></div>
     <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><path d="M14 14h3v3M21 21h-3v-3"/></svg></div><h3>Calibration target</h3><p>Printable target: a 40 mm QR for scale, a 100 mm L-scale legible in the texture, grey patches for white balance and exposure.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-5 9 5v10l-9 5-9-5z"/><path d="M3 9l9 5 9-5M12 14v10"/></svg></div><h3>Surroundings from LiDAR</h3><p>The room mesh measured by LiDAR during capture — floor, walls, ceiling, table, door. A second, metric, untextured model: position of the body in the room, distances from walls and objects.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 12h16M12 4v16"/></svg></div><h3>Measured, not invented</h3><p>Classical photogrammetry and LiDAR. No NeRF, 3D Gaussian Splatting or AI-completed geometry — the model is built only from captured data and the report states this explicitly.</p></div>
+    <div class="d"><div class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3>iPhone captures, Mac reviews</h3><p>Open the <code>.aprehliadka</code> package on a Mac (Apple Silicon) too: examination, measuring, findings, processing and the report. Capture stays on an iPhone or iPad with LiDAR.</p></div>
   </div>
   <div class="pills">
-    <span class="pill">100 % on-device</span><span class="pill">no account · no cloud</span><span class="pill">surroundings from LiDAR (room mesh)</span><span class="pill">iPhone Pro with LiDAR (recommended)</span><span class="pill">iOS 18+</span><span class="pill">USDZ · PDF · ZIP</span><span class="pill">Slovak · English</span>
+    <span class="pill">100 % on-device</span><span class="pill">no account · no cloud</span><span class="pill">surroundings from LiDAR (room mesh)</span><span class="pill">iPhone Pro with LiDAR (recommended)</span><span class="pill">iOS 18+ · iPadOS · macOS (Apple Silicon)</span><span class="pill">USDZ · USDA · PDF · ZIP</span><span class="pill">mm · cm · dm · m · in · ft</span><span class="pill">no NeRF / 3DGS</span><span class="pill">Slovak · English</span>
   </div>
   <div class="note">The app is free and fully functional with no limits. Anyone who wishes can become a donor — an optional one-time fee through the App Store that unlocks nothing. A documentation tool that supports professional judgement and does not replace it. Designed as an <a href="#eprehliadky">add-on to ePrehliadky (ÚDZS)</a>.</div>
 </section>
 
+
+<section class="block" id="novinky">
+  <div class="card">
+    <h2>Čo je nové vo verzii 2.1 · What's new in 2.1</h2>
+    <ul>
+      <li><strong>Okolie z LiDARu</strong> — mesh miestnosti (ARKit) ako druhý, metrický model bez textúry; vlastné nálezy a merania, SHA-256 v protokole.</li>
+      <li><strong>Dráha po povrchu</strong> — dĺžka rany či obvod sa sčítava po skutočnom povrchu meshu, nie po tetive; pri vzdialenosti sa ukáže aj dĺžka po povrchu.</li>
+      <li><strong>Jednotky</strong> mm · cm · dm · m · palce · stopy, presný prepočet; v balíku vždy mm.</li>
+      <li><strong>Vyhlásenie o metóde v protokole</strong> — bez NeRF/3DGS/AI dopočtu, verzia softvéru, obmedzenia metódy podľa článku FSMLS 1/2026.</li>
+      <li><strong>Mac (Apple Silicon)</strong> — revízia balíkov z iPhonu na Macu; „Uložiť do…“ pri exporte.</li>
+      <li><strong>Opravy</strong> — pád vo foto režime (hromadenie snímkov v pamäti), dodatočné vloženie LiDAR hĺbky do starších relácií, log výpočtu v balíku, rýchlejší zoznam skenov.</li>
+    </ul>
+    <hr>
+    <ul>
+      <li><strong>Surroundings from LiDAR</strong> — the room mesh (ARKit) as a second, metric, untextured model; its own findings and measurements, SHA-256 in the report.</li>
+      <li><strong>Path along the surface</strong> — wound length or circumference adds up along the real mesh surface, not the chord; distance also shows the length along the surface.</li>
+      <li><strong>Units</strong> mm · cm · dm · m · inches · feet with exact conversion; the package always stores mm.</li>
+      <li><strong>Method statement in the report</strong> — no NeRF/3DGS/AI completion, software version, limitations of the method per FSMLS 1/2026.</li>
+      <li><strong>Mac (Apple Silicon)</strong> — review packages from the iPhone on a Mac; “Save to…” on export.</li>
+      <li><strong>Fixes</strong> — photo-mode crash (frames piling up in memory), LiDAR depth embedded into older sessions, processing log in the package, faster scan list.</li>
+    </ul>
+  </div>
+</section>
 
 <section class="block">
   <div class="card">
