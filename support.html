@@ -146,7 +146,13 @@
     <h3>Zariadenie nepodporuje fotogrametriu — čo teraz?</h3>
     <p>Výpočet 3D modelu potrebuje čip A17 Pro / M1 a novší (iPhone 15 Pro a novšie Pro modely, iPad s M1+). Staršie zariadenie vie <strong>snímať</strong>: nasnímajte, v Exporte vyberte <em>Model, nálezy a snímky</em>, balík pošlite AirDropom na podporované zariadenie, tam ho importujte a spustite rekonštrukciu. Hotový model sa dá poslať späť ako balík.</p>
     <h3>Kde je kalibračný terč?</h3>
-    <p>Zoznam skenov → menu ⋯ → <em>Kalibračný terč na tlač (PDF)</em>. Tlačte v mierke 100 % a skontrolujte pravítkom (škála 100 mm, QR 40 mm). Položte ho naplocho vedľa subjektu.</p>
+    <p>Zoznam skenov → menu ⋯ → <em>Kalibračný terč T2 na tlač (PDF)</em>. Tlačte v mierke 100 % a skontrolujte posuvným meradlom (škála 100 mm, QR A 40 mm, stredy fiduciálov B–D 48,0 mm). Položte ho naplocho vedľa subjektu, v zábere čo najviac snímkov. Terč T2 má štyri QR fiduciály so známymi vzdialenosťami: aplikácia ich stredy prepočíta z LiDAR hĺbky do 3D a šesť vzdialeností porovná s referenciou — výsledok (priemerná a najväčšia chyba v mm a %) je v skene, protokole a certifikáte. Staršie terče T1 fungujú ďalej (bez metrológie).</p>
+
+    <h3>Čo je certifikát 3D dokumentácie a trieda A–D?</h3>
+    <p>Export → <em>Vydať certifikát 3D dokumentácie</em> (k hotovému modelu). Certifikát uvádza stopu snímania (dráha kamery, pokrytie, čas), overenie mierky (LiDAR, fit trajektórie, etalón, terč T2), SHA-256 modelu a nálezov, podpis kľúčom zariadenia (Pro) a QR kód na overenie. <strong>Trieda A</strong> = mierka doložená dvoma nezávislými cestami s chybou do 1 %; <strong>B</strong> = metrická bez druhého dôkazu; <strong>C</strong> = orientačná; <strong>D</strong> = neoverená. Certifikát je aj v balíku (<code>certificate.json</code>) a import ho overí. Metodika: <a href="aPrehliadky_metodika_certifikacie_SK.pdf">PDF (SK)</a>.</p>
+
+    <h3>Dá sa vypnúť zvuk skenovania?</h3>
+    <p>Áno — ikona reproduktora na obrazovke snímania alebo ⓘ → Nastavenia → Zvuk skenovania: Mostík (senzor), Kozmický (theremin), Klasický alebo Bez zvuku. Výška tónu stúpa s pokrytím, nový sektor a dokončenie majú vlastný signál.</p>
     <h3>Ako snímať?</h3>
     <p>Zamierte na stred subjektu, potvrďte a pomaly ho obchádzajte — snímky sa spúšťajú samy. Radar vpravo hore ukazuje pokrytie. Telo: difúzne svetlo, bez blesku. Predmet: matný kontrastný podklad, obísť v troch výškach.</p>
     <h3>Výpočet trvá dlho / telefón sa zahrieva</h3>
@@ -164,11 +170,11 @@
     <h3>Ako zmením jednotky?</h3>
     <p>ⓘ → Nastavenia → Jednotky merania: mm, cm, dm, m, palce, stopy. Prepočet je presný; v balíku a v protokole sú hodnoty vždy uložené v mm.</p>
     <h3>Funguje aj na Macu?</h3>
-    <p>Áno, na Macu s Apple Silicon (App Store → Mac, aplikácia „Designed for iPad“). Snímanie ani výpočet modelu na Macu nie sú možné (fotogrametria Apple pri iPad aplikácii na Macu zlyháva); balík <code>.aprehliadka</code> s hotovým modelom z iPhonu otvoríte dvojklikom, k dispozícii je prehliadka, meranie, nálezy aj protokol. Pri exporte použite „Uložiť do…“.</p>
+    <p>Áno, na Macu s Apple Silicon (App Store → Mac, aplikácia „Designed for iPad“). Snímanie ani výpočet modelu na Macu nie sú možné (fotogrametria Apple pri iPad aplikácii na Macu zlyháva); balík <code>.f3d</code> (alebo starší <code>.aprehliadka</code>) s hotovým modelom z iPhonu otvoríte dvojklikom, k dispozícii je prehliadka, meranie, nálezy aj protokol. Pri exporte použite „Uložiť do…“.</p>
     <h3>Donor — nepovinný poplatok</h3>
     <p>Aplikácia je bezplatná a plne funkčná bez obmedzení. Kto chce, môže sa stať donorom cez In-App Purchase Apple v pevných sumách od kávy po ročného donora (App Store neumožňuje ľubovoľnú sumu). Nič neodomyká.</p>
     <h3>ePrehliadky</h3>
-    <p>aPrehliadky sú navrhnuté ako možný doplnok k ePrehliadkam (softvér ÚDZS, <a href="https://www.udzs-sk.sk">www.udzs-sk.sk</a>): k záznamu sa prikladá balík <code>.aprehliadka</code> a protokol PDF. Nie sú produktom ÚDZS.</p>
+    <p>aPrehliadky sú navrhnuté ako možný doplnok k ePrehliadkam (softvér ÚDZS, <a href="https://www.udzs-sk.sk">www.udzs-sk.sk</a>): k záznamu sa prikladá balík <code>.f3d</code>, protokol PDF a certifikát. Nie sú produktom ÚDZS.</p>
   </div>
 </section>
 
@@ -188,6 +194,12 @@
     <p>Computing the 3D model needs an A17 Pro / M1 chip or newer (iPhone 15 Pro and later Pro models, iPad with M1+). An older device can still <strong>capture</strong>: capture, choose <em>Model, findings and frames</em> in Export, send the package via AirDrop to a supported device, import it there and start reconstruction. The finished model can be sent back as a package.</p>
     <h3>Where is the calibration target?</h3>
     <p>Scan list → menu ⋯ → <em>Printable calibration target (PDF)</em>. Print at 100 % and check with a ruler (scale 100 mm, QR 40 mm). Place it flat next to the subject.</p>
+
+    <h3>What is the 3D documentation certificate and class A–D?</h3>
+    <p>Export → <em>Issue 3D documentation certificate</em> (for a finished model). The certificate states the capture trace (camera path, coverage, time), scale verification (LiDAR, trajectory fit, reference, T2 target), the SHA-256 of the model and findings, a device-key signature (Pro) and a QR code for verification. <strong>Class A</strong> = scale substantiated by two independent routes within 1 %; <strong>B</strong> = metric without a second proof; <strong>C</strong> = indicative; <strong>D</strong> = unverified. The certificate is also in the package (<code>certificate.json</code>) and import verifies it. Methodology: <a href="aPrehliadky_certification_methodology_EN.pdf">PDF (EN)</a>. The T2 target adds four QR fiducials with known distances; the app measures them from LiDAR depth and reports the error.</p>
+
+    <h3>Can the scan sound be turned off?</h3>
+    <p>Yes — the speaker icon on the capture screen or ⓘ → Settings → Scan sound: Bridge (sensor), Cosmic (theremin), Classic or No sound.</p>
     <h3>How to capture?</h3>
     <p>Aim at the center of the subject, confirm and walk around slowly — frames are captured automatically. The radar in the top right shows coverage. Body: diffuse light, no flash. Object: matte contrasting surface, walk around at three heights.</p>
     <h3>Processing takes long / the phone heats up</h3>
@@ -205,11 +217,11 @@
     <h3>How do I change units?</h3>
     <p>ⓘ → Settings → Measurement units: mm, cm, dm, m, inches, feet. The conversion is exact; the package and the report always store values in mm.</p>
     <h3>Does it work on a Mac?</h3>
-    <p>Yes, on a Mac with Apple Silicon (App Store → Mac, “Designed for iPad” app). Capture and model processing are not possible on the Mac (Apple's photogrammetry fails for iPad apps on the Mac); double-click an <code>.aprehliadka</code> package with a finished model from the iPhone to open it — examination, measuring, findings and the report are available. Use “Save to…” when exporting.</p>
+    <p>Yes, on a Mac with Apple Silicon (App Store → Mac, “Designed for iPad” app). Capture and model processing are not possible on the Mac (Apple's photogrammetry fails for iPad apps on the Mac); double-click an <code>.f3d</code> package (or an older <code>.aprehliadka</code>) with a finished model from the iPhone to open it — examination, measuring, findings and the report are available. Use “Save to…” when exporting.</p>
     <h3>Donor — optional fee</h3>
     <p>The app is free and fully functional with no limits. Anyone who wishes can become a donor through Apple In-App Purchase in fixed amounts from a coffee to an annual donor (the App Store does not allow arbitrary amounts). It unlocks nothing.</p>
     <h3>ePrehliadky</h3>
-    <p>aPrehliadky is designed as a possible add-on to ePrehliadky (software of ÚDZS, <a href="https://www.udzs-sk.sk">www.udzs-sk.sk</a>): the <code>.aprehliadka</code> package and the PDF report are attached to the record. It is not a product of ÚDZS.</p>
+    <p>aPrehliadky is designed as a possible add-on to ePrehliadky (software of ÚDZS, <a href="https://www.udzs-sk.sk">www.udzs-sk.sk</a>): the <code>.f3d</code> package, the PDF report and the certificate are attached to the record. It is not a product of ÚDZS.</p>
   </div>
 </section>
 </main>
