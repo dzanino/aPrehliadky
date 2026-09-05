@@ -151,8 +151,11 @@
     <h3>Čo je certifikát 3D dokumentácie a trieda A–D?</h3>
     <p>Export → <em>Vydať certifikát 3D dokumentácie</em> (k hotovému modelu). Certifikát uvádza stopu snímania (dráha kamery, pokrytie, čas), overenie mierky (LiDAR, fit trajektórie, etalón, terč T2), SHA-256 modelu a nálezov, podpis kľúčom zariadenia (Pro) a QR kód na overenie. <strong>Trieda A</strong> = mierka doložená dvoma nezávislými cestami s chybou do 1 %; <strong>B</strong> = metrická bez druhého dôkazu; <strong>C</strong> = orientačná; <strong>D</strong> = neoverená. Certifikát je aj v balíku (<code>certificate.json</code>) a import ho overí. Metodika: <a href="aPrehliadky_metodika_certifikacie_SK.pdf">PDF (SK)</a>.</p>
 
+    <h3>Čo znamená chybový kód (napr. E30, „error 1“)?</h3>
+    <p>Každá chyba sa zobrazí s kódom <strong>E-xx</strong>, významom a nápravou; v hranatej zátvorke je systémová správa. <strong>E30</strong> = fotogrametria nedokázala spárovať snímky (systémový kód 1): prepočítajte s citlivosťou Vysoká a rozsahom Celá scéna, potom vstup „Priečinok bez hĺbky“, inak sken zopakujte pomalšie s väčším prekrytím. <strong>E33</strong> = málo miesta, <strong>E4x</strong> = ARKit (kamera, sledovanie), <strong>E60</strong> = App Store. Úplná tabuľka je v návode (kapitola 14).</p>
+
     <h3>Dá sa vypnúť zvuk skenovania?</h3>
-    <p>Áno — ikona reproduktora na obrazovke snímania alebo ⓘ → Nastavenia → Zvuk skenovania: Mostík (senzor), Kozmický (theremin), Klasický alebo Bez zvuku. Výška tónu stúpa s pokrytím, nový sektor a dokončenie majú vlastný signál.</p>
+    <p>Áno — ikona reproduktora na obrazovke snímania alebo ⓘ → Nastavenia → Zvuk skenovania: Hlboký vesmír (predvolené, tichý hlboký tón a hvizd), Star Trek (senzorové warble) alebo Bez zvuku. Výška tónu stúpa s pokrytím, nový sektor a dokončenie majú vlastný signál.</p>
     <h3>Ako snímať?</h3>
     <p>Zamierte na stred subjektu, potvrďte a pomaly ho obchádzajte — snímky sa spúšťajú samy. Radar vpravo hore ukazuje pokrytie. Telo: difúzne svetlo, bez blesku. Predmet: matný kontrastný podklad, obísť v troch výškach.</p>
     <h3>Výpočet trvá dlho / telefón sa zahrieva</h3>
@@ -198,8 +201,11 @@
     <h3>What is the 3D documentation certificate and class A–D?</h3>
     <p>Export → <em>Issue 3D documentation certificate</em> (for a finished model). The certificate states the capture trace (camera path, coverage, time), scale verification (LiDAR, trajectory fit, reference, T2 target), the SHA-256 of the model and findings, a device-key signature (Pro) and a QR code for verification. <strong>Class A</strong> = scale substantiated by two independent routes within 1 %; <strong>B</strong> = metric without a second proof; <strong>C</strong> = indicative; <strong>D</strong> = unverified. The certificate is also in the package (<code>certificate.json</code>) and import verifies it. Methodology: <a href="aPrehliadky_certification_methodology_EN.pdf">PDF (EN)</a>. The T2 target adds four QR fiducials with known distances; the app measures them from LiDAR depth and reports the error.</p>
 
+    <h3>What does an error code mean (e.g. E30, “error 1”)?</h3>
+    <p>Every error is shown with a code <strong>E-xx</strong>, its meaning and a remedy; the system message is in square brackets. <strong>E30</strong> = photogrammetry could not match the frames (system code 1): recompute with sensitivity High and extent Whole scene, then input “Folder without depth”, otherwise repeat the scan more slowly with more overlap. <strong>E33</strong> = not enough space, <strong>E4x</strong> = ARKit (camera, tracking), <strong>E60</strong> = App Store. The full table is in the user guide (chapter 14).</p>
+
     <h3>Can the scan sound be turned off?</h3>
-    <p>Yes — the speaker icon on the capture screen or ⓘ → Settings → Scan sound: Bridge (sensor), Cosmic (theremin), Classic or No sound.</p>
+    <p>Yes — the speaker icon on the capture screen or ⓘ → Settings → Scan sound: Deep Space (default, quiet deep tone and whistle), Star Trek (sensor warble) or No sound.</p>
     <h3>How to capture?</h3>
     <p>Aim at the center of the subject, confirm and walk around slowly — frames are captured automatically. The radar in the top right shows coverage. Body: diffuse light, no flash. Object: matte contrasting surface, walk around at three heights.</p>
     <h3>Processing takes long / the phone heats up</h3>
