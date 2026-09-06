@@ -154,6 +154,9 @@
     <h3>Aplikácia sa počas výpočtu ukončila (E36) — telefón „vyplo“ pri 50 %</h3>
     <p>iOS ukončí aplikáciu bez varovania, keď počas výpočtu prejde do pozadia (zamknutie, iná aplikácia, hovor), keď nestačí pamäť alebo pri prehriatí. Snímky sú v poriadku. Po otvorení skenu aplikácia ukáže E36 a tlačidlo <em>Spustiť úsporný výpočet</em> (snímky zmenšené na 2560 px, mierku dáva LiDAR, presnosť sa prakticky nemení). Počas výpočtu nechajte aplikáciu v popredí na nabíjačke, telefón nezamykajte a zatvorte ostatné aplikácie. Podrobne v návode, kapitola 5.1.</p>
 
+    <h3>Model je hore nohami</h3>
+    <p>Fotogrametria Apple berie smer gravitácie výlučne z metadát HEIC (Apple MakerNote, tag 8); sidecar súbor <code>_gravity.txt</code> ignoruje. Snímky z verzií pred 2.2.1 (build 26) tento zápis nemali, preto model vychádzal otočený o 180° — na iPhone aj na Macu. Od buildu 26 sa gravitácia zapisuje priamo do snímkov; pri <em>Prepočítať</em> staršej relácie sa doplní automaticky. Fit trajektórie prevrátený model rozpozná a prehliadka ho otočí sama; ručne slúži prepínač ⋯ → <em>Otočiť model hore nohami</em> (mení len zobrazenie). Merania a mierka nie sú otočením dotknuté.</p>
+
     <h3>Čo znamená chybový kód (napr. E30, „error 1“)?</h3>
     <p>Každá chyba sa zobrazí s kódom <strong>E-xx</strong>, významom a nápravou; v hranatej zátvorke je systémová správa. <strong>E30</strong> = fotogrametria nedokázala spárovať snímky (systémový kód 1): prepočítajte s citlivosťou Vysoká a rozsahom Celá scéna, potom vstup „Priečinok bez hĺbky“, inak sken zopakujte pomalšie s väčším prekrytím. <strong>E33</strong> = málo miesta, <strong>E4x</strong> = ARKit (kamera, sledovanie), <strong>E60</strong> = App Store. Úplná tabuľka je v návode (kapitola 14).</p>
 
@@ -206,6 +209,9 @@
 
     <h3>The app quit during processing (E36) — the phone “switched off” at 50 %</h3>
     <p>iOS terminates the app without warning when it goes to the background during processing (locking, another app, a call), when memory runs out or when the device overheats. The frames are fine. When you reopen the scan the app shows E36 and a button <em>Start economy processing</em> (frames downsized to 2560 px; scale comes from LiDAR, accuracy is practically unchanged). During processing keep the app in the foreground on the charger, do not lock the phone and close other apps. Details in the user guide, chapter 5.1.</p>
+
+    <h3>The model is upside down</h3>
+    <p>Apple photogrammetry takes the gravity direction solely from HEIC metadata (Apple MakerNote, tag 8); it ignores the <code>_gravity.txt</code> sidecar. Frames from versions before 2.2.1 (build 26) lacked this entry, so the model came out rotated by 180° — on iPhone and on a Mac alike. From build 26 gravity is written into the frames themselves; <em>Recompute</em> on an older session adds it automatically. The trajectory fit recognises an inverted model and the viewer flips it by itself; the manual toggle ⋯ → <em>Flip model upside down</em> changes only the display. Measurements and scale are not affected by the flip.</p>
 
     <h3>What does an error code mean (e.g. E30, “error 1”)?</h3>
     <p>Every error is shown with a code <strong>E-xx</strong>, its meaning and a remedy; the system message is in square brackets. <strong>E30</strong> = photogrammetry could not match the frames (system code 1): recompute with sensitivity High and extent Whole scene, then input “Folder without depth”, otherwise repeat the scan more slowly with more overlap. <strong>E33</strong> = not enough space, <strong>E4x</strong> = ARKit (camera, tracking), <strong>E60</strong> = App Store. The full table is in the user guide (chapter 14).</p>
