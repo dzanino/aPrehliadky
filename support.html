@@ -144,7 +144,7 @@
     <h3>Aké zariadenie potrebujem?</h3>
     <p>iPhone alebo iPad s iOS 18+. LiDAR (modely Pro) je odporúčaný — dáva hĺbku ku každému snímku a model vzniká priamo v metroch. Bez LiDARu sa dá snímať tiež; mierku dodá trajektória ARKitu a kalibračný terč, overte ju etalónom.</p>
     <h3>Zariadenie nepodporuje fotogrametriu — čo teraz?</h3>
-    <p>Výpočet 3D modelu potrebuje čip A17 Pro / M1 a novší (iPhone 15 Pro a novšie Pro modely, iPad s M1+). Staršie zariadenie vie <strong>snímať</strong>: nasnímajte, v Exporte vyberte <em>Model, nálezy a snímky</em>, balík pošlite AirDropom na podporované zariadenie, tam ho importujte a spustite rekonštrukciu. Hotový model sa dá poslať späť ako balík.</p>
+    <p>Výpočet 3D modelu potrebuje čip A17 Pro / M1 a novší (iPhone 15 Pro a novšie Pro modely, iPad s M1+). Staršie zariadenie vie <strong>snímať</strong> — aj bez LiDARu, mierku vtedy dá dráha kamery a kalibračný terč. Nasnímajte, v Exporte vyberte <em>Model, nálezy a snímky</em> a balík pošlite AirDropom buď na podporovaný iPhone alebo iPad, alebo na <strong>Mac s Apple Silicon</strong> do aplikácie <em>Fotograme3ka 3D Výpočet</em>. Tam sa model vypočíta a balík pošlete späť do telefónu, kde ho otvoríte ako nový sken. Podrobne v návode, kapitola 5.2.</p>
     <h3>Kde je kalibračný terč?</h3>
     <p>Zoznam skenov → menu ⋯ → <em>Kalibračný terč T2 na tlač (PDF)</em>. Tlačte v mierke 100 % a skontrolujte posuvným meradlom (škála 100 mm, QR A 40 mm, stredy fiduciálov B–D 48,0 mm). Položte ho naplocho vedľa subjektu, v zábere čo najviac snímkov. Terč T2 má štyri QR fiduciály so známymi vzdialenosťami: aplikácia ich stredy prepočíta z LiDAR hĺbky do 3D a šesť vzdialeností porovná s referenciou — výsledok (priemerná a najväčšia chyba v mm a %) je v skene, protokole a certifikáte. Staršie terče T1 fungujú ďalej (bez metrológie).</p>
 
@@ -156,6 +156,12 @@
 
     <h3>Model je hore nohami</h3>
     <p>Fotogrametria Apple berie smer gravitácie výlučne z metadát HEIC (Apple MakerNote, tag 8); sidecar súbor <code>_gravity.txt</code> ignoruje. Snímky z verzií pred 2.2.1 (build 26) tento zápis nemali, preto model vychádzal otočený o 180° — na iPhone aj na Macu. Od buildu 26 sa gravitácia zapisuje priamo do snímkov; pri <em>Prepočítať</em> staršej relácie sa doplní automaticky. Fit trajektórie prevrátený model rozpozná a prehliadka ho otočí sama; ručne slúži prepínač ⋯ → <em>Otočiť model hore nohami</em> (mení len zobrazenie). Merania a mierka nie sú otočením dotknuté.</p>
+
+    <h3>Riadok „Trajektória ARKit vs. model“ svieti oranžovo</h3>
+    <p>Aplikácia porovnáva dráhu kamery zaznamenanú ARKitom s polohami kamier, ktoré si našla fotogrametria. Pri dobrom skene vyjde mierka blízko 1 a odchýlka do niekoľkých centimetrov. Rozdiel do 3 % je zelený, väčší oranžový. <strong>So zapnutým LiDARom nejde o chybu merania</strong> — model je v metroch priamo z hĺbkových máp a žiaden prepočítavací koeficient sa nepoužíva; dráha kamery je len nezávislá kontrola a počas dlhého skenu sa jej hromadí drift. Oranžová hovorí, že model nemá druhé nezávislé overenie mierky: doložte ho <strong>kalibračným terčom T2</strong> alebo etalónom, inak certifikát dá triedu C. Bez LiDARu je to naopak — vtedy mierku určuje práve dráha kamery a aplikácia ňou merania prepočíta.</p>
+
+    <h3>Čo sa stane s nálezmi, keď dám Prepočítať?</h3>
+    <p>Každý výpočet vytvorí model vo vlastnom súradnicovom ráme, takže staré špendlíky a merania by na novom modeli sedeli inde. Aplikácia ich preto pri prepočte odloží do samostatného súboru v priečinku skenu a oznámi to; do nového modelu ich zadajte znova. Pôvodný model sa počas výpočtu odloží nabok — ak výpočet zrušíte alebo zlyhá, vráti sa. Certifikát vydajte nanovo, starý patril k inému modelu.</p>
 
     <h3>Čo znamená chybový kód (napr. E30, „error 1“)?</h3>
     <p>Každá chyba sa zobrazí s kódom <strong>E-xx</strong>, významom a nápravou; v hranatej zátvorke je systémová správa. <strong>E30</strong> = fotogrametria nedokázala spárovať snímky (systémový kód 1): prepočítajte s citlivosťou Vysoká a rozsahom Celá scéna, potom vstup „Priečinok bez hĺbky“, inak sken zopakujte pomalšie s väčším prekrytím. <strong>E33</strong> = málo miesta, <strong>E4x</strong> = ARKit (kamera, sledovanie), <strong>E60</strong> = App Store. Úplná tabuľka je v návode (kapitola 14).</p>
@@ -179,7 +185,8 @@
     <h3>Ako zmením jednotky?</h3>
     <p>ⓘ → Nastavenia → Jednotky merania: mm, cm, dm, m, palce, stopy. Prepočet je presný; v balíku a v protokole sú hodnoty vždy uložené v mm.</p>
     <h3>Funguje aj na Macu?</h3>
-    <p>Áno, na Macu s Apple Silicon (App Store → Mac, aplikácia „Designed for iPad“). Snímanie ani výpočet modelu na Macu nie sú možné (fotogrametria Apple pri iPad aplikácii na Macu zlyháva); balík <code>.f3d</code> (alebo starší <code>.aprehliadka</code>) s hotovým modelom z iPhonu otvoríte dvojklikom, k dispozícii je prehliadka, meranie, nálezy aj protokol. Pri exporte použite „Uložiť do…“.</p>
+    <p>Áno, dvoma spôsobmi. <strong>aPrehliadky</strong> na Macu s Apple Silicon (App Store → Mac, aplikácia „Designed for iPad“) slúžia na prehliadku, meranie, nálezy a protokol: balík <code>.f3d</code> alebo starší <code>.aprehliadka</code> otvoríte dvojklikom, pri exporte použite „Uložiť do…“. Snímanie ani výpočet v nej na Macu nefungujú — fotogrametria Apple pri iPad aplikácii na Macu zlyháva.</p>
+    <p><strong>Fotograme3ka 3D Výpočet</strong> je samostatná natívna aplikácia pre Mac, ktorá výpočet zvládne. Balík so snímkami pretiahnete do okna, zvolíte detail a rozsah a Mac vypočíta model, ktorý pošlete späť do iPhonu. Mac pozná detail stredný a vysoký (iPhone len nízky) a zvládne 1 500 snímok a 16 384 px oproti 200 snímkam a 8 192 px na iPhone. Všetko beží v Macu, bez cloudu a bez účtu.</p>
     <h3>Donor — nepovinný poplatok</h3>
     <p>Aplikácia je bezplatná a plne funkčná bez obmedzení. Kto chce, môže sa stať donorom cez In-App Purchase Apple v pevných sumách od kávy po ročného donora (App Store neumožňuje ľubovoľnú sumu). Nič neodomyká.</p>
     <h3>ePrehliadky</h3>
@@ -200,7 +207,7 @@
     <h3>Which device do I need?</h3>
     <p>iPhone or iPad with iOS 18+. LiDAR (Pro models) is recommended — it provides depth for every frame and the model is built directly in meters. Without LiDAR you can still capture; scale comes from the ARKit trajectory and the calibration target — verify it with a reference.</p>
     <h3>The device does not support photogrammetry — what now?</h3>
-    <p>Computing the 3D model needs an A17 Pro / M1 chip or newer (iPhone 15 Pro and later Pro models, iPad with M1+). An older device can still <strong>capture</strong>: capture, choose <em>Model, findings and frames</em> in Export, send the package via AirDrop to a supported device, import it there and start reconstruction. The finished model can be sent back as a package.</p>
+    <p>Computing the 3D model needs an A17 Pro / M1 chip or newer (iPhone 15 Pro and later Pro models, iPad with M1+). An older device can still <strong>capture</strong> — even without LiDAR, in which case scale comes from the camera path and the calibration target. Capture, choose <em>Model, findings and frames</em> in Export and AirDrop the package either to a supported iPhone or iPad, or to an <strong>Apple Silicon Mac</strong> into the <em>Fotograme3ka 3D Computation</em> app. The model is computed there and you send the package back to the phone, where it opens as a new scan. Details in the user guide, chapter 5.2.</p>
     <h3>Where is the calibration target?</h3>
     <p>Scan list → menu ⋯ → <em>Printable calibration target (PDF)</em>. Print at 100 % and check with a ruler (scale 100 mm, QR 40 mm). Place it flat next to the subject.</p>
 
@@ -212,6 +219,12 @@
 
     <h3>The model is upside down</h3>
     <p>Apple photogrammetry takes the gravity direction solely from HEIC metadata (Apple MakerNote, tag 8); it ignores the <code>_gravity.txt</code> sidecar. Frames from versions before 2.2.1 (build 26) lacked this entry, so the model came out rotated by 180° — on iPhone and on a Mac alike. From build 26 gravity is written into the frames themselves; <em>Recompute</em> on an older session adds it automatically. The trajectory fit recognises an inverted model and the viewer flips it by itself; the manual toggle ⋯ → <em>Flip model upside down</em> changes only the display. Measurements and scale are not affected by the flip.</p>
+
+    <h3>The “ARKit trajectory vs. model” row is orange</h3>
+    <p>The app compares the camera path recorded by ARKit with the camera positions photogrammetry found. A good scan gives a scale close to 1 and a residual of a few centimetres. A difference up to 3 % is green, more is orange. <strong>With LiDAR this is not a measurement error</strong> — the model is metric straight from the depth maps and no conversion coefficient is applied; the camera path is only an independent check and drift accumulates over a long scan. Orange says the model has no second independent proof of scale: provide one with the <strong>T2 calibration target</strong> or a reference object, otherwise the certificate gives class C. Without LiDAR it is the other way round — the camera path then defines the scale and the app converts measurements with it.</p>
+
+    <h3>What happens to findings when I recompute?</h3>
+    <p>Every computation produces a model in its own coordinate frame, so old pins and measurements would sit in the wrong places on the new model. The app therefore sets them aside in a separate file in the scan folder and tells you; enter them again on the new model. The previous model is kept aside during the computation — if you cancel it or it fails, the old model is restored. Issue the certificate anew, the old one belonged to a different model.</p>
 
     <h3>What does an error code mean (e.g. E30, “error 1”)?</h3>
     <p>Every error is shown with a code <strong>E-xx</strong>, its meaning and a remedy; the system message is in square brackets. <strong>E30</strong> = photogrammetry could not match the frames (system code 1): recompute with sensitivity High and extent Whole scene, then input “Folder without depth”, otherwise repeat the scan more slowly with more overlap. <strong>E33</strong> = not enough space, <strong>E4x</strong> = ARKit (camera, tracking), <strong>E60</strong> = App Store. The full table is in the user guide (chapter 14).</p>
@@ -235,7 +248,8 @@
     <h3>How do I change units?</h3>
     <p>ⓘ → Settings → Measurement units: mm, cm, dm, m, inches, feet. The conversion is exact; the package and the report always store values in mm.</p>
     <h3>Does it work on a Mac?</h3>
-    <p>Yes, on a Mac with Apple Silicon (App Store → Mac, “Designed for iPad” app). Capture and model processing are not possible on the Mac (Apple's photogrammetry fails for iPad apps on the Mac); double-click an <code>.f3d</code> package (or an older <code>.aprehliadka</code>) with a finished model from the iPhone to open it — examination, measuring, findings and the report are available. Use “Save to…” when exporting.</p>
+    <p>Yes, in two ways. <strong>aPrehliadky</strong> on an Apple Silicon Mac (App Store → Mac, “Designed for iPad” app) is for examination, measuring, findings and the report: double-click an <code>.f3d</code> package or an older <code>.aprehliadka</code> to open it, and use “Save to…” when exporting. Capture and processing do not work there — Apple's photogrammetry fails for iPad apps on the Mac.</p>
+    <p><strong>Fotograme3ka 3D Computation</strong> is a separate native Mac app that does the computing. Drag a package with frames into the window, choose detail and extent, and the Mac computes the model, which you send back to the iPhone. The Mac offers medium and full detail (the iPhone only reduced) and handles 1,500 frames and 16,384 px against 200 frames and 8,192 px on the iPhone. Everything runs on the Mac, no cloud and no account.</p>
     <h3>Donor — optional fee</h3>
     <p>The app is free and fully functional with no limits. Anyone who wishes can become a donor through Apple In-App Purchase in fixed amounts from a coffee to an annual donor (the App Store does not allow arbitrary amounts). It unlocks nothing.</p>
     <h3>ePrehliadky</h3>
