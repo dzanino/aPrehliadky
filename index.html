@@ -219,9 +219,10 @@
 
 <section class="block" id="novinky">
   <div class="card">
-    <h2>Čo je nové vo verziách 2.2 a 2.1 · What's new in 2.2 and 2.1</h2>
+    <h2>Čo je nové vo verziách 2.2.1 a 2.2 · What's new in 2.2.1 and 2.2</h2>
     <ul>
-      <li><strong>2.2.1:</strong> <strong>Navigácia pri snímaní</strong> (Pomalšie, Bližšie/Ďalej, Vráťte sa, Druhý okruh nižšie…), zámok orientácie na výšku, výpočet prerušený systémom (E36) s úsporným režimom, <strong>gravitácia v snímkoch</strong> (Apple MakerNote — model už nevychádza hore nohami, staršie relácie sa doplnia pri prepočte), prepínač otočenia modelu.</li>
+      <li><strong>2.2.1:</strong> <strong>Navigácia pri snímaní</strong> (Pomalšie, Bližšie/Ďalej, Vráťte sa, Druhý okruh nižšie…), zámok orientácie na výšku, výpočet prerušený systémom (E36) s úsporným režimom, <strong>gravitácia v snímkoch</strong> (Apple MakerNote — model už nevychádza hore nohami, staršie relácie sa doplnia pri prepočte), prepínač otočenia modelu, mierka z LiDARu bez prepočtu trajektóriou, mazanie skenu s potvrdením, záloha modelu pri prepočte a viditeľné upozornenie, keď sa snímky pre teplo alebo disk práve nespúšťajú.</li>
+      <li><strong>Fotograme3ka 3D Výpočet</strong> — samostatná aplikácia pre Mac s Apple Silicon: balík zo staršieho iPhonu (aj bez LiDARu) prepočíta v strednom alebo vysokom detaile a model pošlete späť do telefónu.</li>
       <li><strong>2.2:</strong> <strong>Certifikát 3D dokumentácie</strong> — trieda A–D, stopa snímania, overenie mierky, hashe, podpis, QR; metodika certifikácie ako PDF nižšie.</li>
       <li><strong>Kalibračný terč T2</strong> — štyri fiduciály, šesť známych vzdialeností; aplikácia ich z LiDARu premeria a chybu zapíše do protokolu a certifikátu (validácia zariadenia).</li>
       <li><strong>Prípona .f3d</strong> (Fotograme3ka 3D) pre balíky; staršie <code>.aprehliadka</code> sa importujú ďalej.</li>
@@ -237,7 +238,8 @@
     </ul>
     <hr>
     <ul>
-      <li><strong>2.2.1:</strong> <strong>Capture guidance</strong> (Slower, Closer/Further away, Step back, Second lap lower…), portrait orientation lock, processing interrupted by the system (E36) with economy mode, <strong>gravity in the frames</strong> (Apple MakerNote — the model no longer comes out upside down; older sessions are completed on recompute), model flip toggle.</li>
+      <li><strong>2.2.1:</strong> <strong>Capture guidance</strong> (Slower, Closer/Further away, Step back, Second lap lower…), portrait orientation lock, processing interrupted by the system (E36) with economy mode, <strong>gravity in the frames</strong> (Apple MakerNote — the model no longer comes out upside down; older sessions are completed on recompute), model flip toggle, scale from LiDAR without trajectory conversion, scan deletion with confirmation, the model kept aside during a recompute, and a visible warning when frames are not being taken because of heat or disk.</li>
+      <li><strong>Fotograme3ka 3D Computation</strong> — a separate app for Apple Silicon Macs: it recomputes a package from an older iPhone (even without LiDAR) at medium or full detail and you send the model back to the phone.</li>
       <li><strong>2.2:</strong> <strong>3D documentation certificate</strong> — class A–D, capture trace, scale verification, hashes, signature, QR; the certification methodology as a PDF below.</li>
       <li><strong>Calibration target T2</strong> — four fiducials, six known distances; the app measures them from LiDAR and writes the error into the report and the certificate (device validation).</li>
       <li><strong>.f3d extension</strong> (Fotograme3ka 3D) for packages; older <code>.aprehliadka</code> files still import.</li>
@@ -279,8 +281,8 @@
 <section class="block">
   <div class="card">
     <h2>Návod · User guide</h2>
-    <p><a href="aPrehliadky_navod_SK.pdf" target="_blank" rel="noopener">aPrehliadky — návod 2.2 (PDF, slovensky)</a> — kontrolný zoznam pred snímaním, postup pre mŕtve telo, živú osobu, predmet a scénu, výpočet, prehliadka s režimami Merať / Označiť nález, presné označovanie nálezov, meranie s najmenšou chybou, okolie z LiDARu, protokol, Mac, riešenie problémov.</p>
-    <p><a href="aPrehliadky_user_guide_EN.pdf" target="_blank" rel="noopener">aPrehliadky — user guide 2.2 (PDF, English)</a> — pre-capture checklist, procedure for a deceased body, a living person, an object and a scene, processing, examination with Measure / Mark finding modes, precise marking of findings, measuring with the smallest error, surroundings from LiDAR, report, Mac, troubleshooting.</p>
+    <p><a href="aPrehliadky_navod_SK.pdf" target="_blank" rel="noopener">aPrehliadky — návod 2.2.1 (PDF, slovensky)</a> — kontrolný zoznam pred snímaním so schémami snímania, postup pre mŕtve telo, živú osobu, predmet a scénu, výpočet vrátane výpočtu na Macu, prehliadka s režimami Merať / Označiť nález, presné označovanie nálezov, meranie s najmenšou chybou, okolie z LiDARu, protokol, Mac, riešenie problémov.</p>
+    <p><a href="aPrehliadky_user_guide_EN.pdf" target="_blank" rel="noopener">aPrehliadky — user guide 2.2.1 (PDF, English)</a> — pre-capture checklist with capture diagrams, procedure for a deceased body, a living person, an object and a scene, processing including computing on a Mac, examination with Measure / Mark finding modes, precise marking of findings, measuring with the smallest error, surroundings from LiDAR, report, Mac, troubleshooting.</p>
     <p><a href="aPrehliadky_metodika_certifikacie_SK.pdf" target="_blank" rel="noopener">Metodika certifikácie 3D dokumentácie v1 (PDF, slovensky)</a> · <a href="aPrehliadky_certification_methodology_EN.pdf" target="_blank" rel="noopener">Certification methodology v1 (PDF, English)</a> — zdroje mierky a ich nezávislosť, trieda dokumentácie A–D, stopa snímania, certifikovaný obsah a podpis, overenie certifikátu, postup validácie zariadenia terčom T2.</p>
     <p><a href="recenzia_aPrehliadky2026.pdf" target="_blank" rel="noopener">Recenzia aPrehliadky 2026 / aPrehliadky Review 2026 (PDF, SK + EN)</a> — úprimné hodnotenie podľa kritérií článku <em>Mobilné 3D skenovanie založené na LiDAR-e a fotogrametrii v súdnolekárskej dokumentácii</em> (Fol Soc Med Leg Slov 2026; 16 (1): 27–32): porovnanie s Polycam a Kiri Engine, GDPR, cloud, presnosť, metrológia, ceny, výhody a limity. / A candid assessment against the criteria of the FSMLS 1/2026 review paper: comparison with Polycam and Kiri Engine, GDPR, cloud, accuracy, metrology, prices, strengths and limits.</p>
   </div>
