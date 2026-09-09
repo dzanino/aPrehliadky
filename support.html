@@ -145,6 +145,9 @@
     <p>iPhone alebo iPad s iOS 18+. LiDAR (modely Pro) je odporúčaný — dáva hĺbku ku každému snímku a model vzniká priamo v metroch. Bez LiDARu sa dá snímať tiež; mierku dodá trajektória ARKitu a kalibračný terč, overte ju etalónom.</p>
     <h3>Zariadenie nepodporuje fotogrametriu — čo teraz?</h3>
     <p>Výpočet 3D modelu potrebuje čip A17 Pro / M1 a novší (iPhone 15 Pro a novšie Pro modely, iPad s M1+). Staršie zariadenie vie <strong>snímať</strong> — aj bez LiDARu, mierku vtedy dá dráha kamery a kalibračný terč. Nasnímajte, v Exporte vyberte <em>Model, nálezy a snímky</em> a balík pošlite AirDropom buď na podporovaný iPhone alebo iPad, alebo na <strong>Mac s Apple Silicon</strong> do aplikácie <em>Fotograme3ka 3D Výpočet</em>. Tam sa model vypočíta a balík pošlete späť do telefónu, kde ho otvoríte ako nový sken. Podrobne v návode, kapitola 5.2.</p>
+    <h3>Terč mám položený podľa návodu, ale aplikácia ho „nenašla“</h3>
+    <p>Najčastejšia príčina nie je umiestnenie, ale <strong>vzdialenosť</strong>. QR kód sa dá prečítať, len keď má v obraze dosť pixelov: terč 40 mm má pri vzdialenosti 1,2 m asi 86 px, čo stačí iba na úplne ostrý snímok — pri chôdzi sa snímky mierne rozmazávajú a kód sa už neprečíta (overené meraním: pri rozmazaní 2 px prestane byť čitateľný, spoľahlivo funguje až od ~130 px). <strong>Riešenie:</strong> počas okruhu raz spomaľte a prejdite ponad terč z 0,5–0,8 m. Sledujte počítadlo terča na obrazovke snímania — kým ukazuje nulu, terč sa nezachytil. Od verzie 2.2.2 na to aplikácia po 40 snímkoch sama upozorní hláškou „Terč nie je v zábere“.</p>
+
     <h3>Kde je kalibračný terč?</h3>
     <p>Zoznam skenov → menu ⋯ → <em>Kalibračný terč T2 na tlač (PDF)</em>. Tlačte v mierke 100 % a skontrolujte posuvným meradlom (škála 100 mm, QR A 40 mm, stredy fiduciálov B–D 48,0 mm). Položte ho naplocho vedľa subjektu, v zábere čo najviac snímkov. Terč T2 má štyri QR fiduciály so známymi vzdialenosťami: aplikácia ich stredy prepočíta z LiDAR hĺbky do 3D a šesť vzdialeností porovná s referenciou — výsledok (priemerná a najväčšia chyba v mm a %) je v skene, protokole a certifikáte. Staršie terče T1 fungujú ďalej (bez metrológie).</p>
 
@@ -172,6 +175,8 @@
 
     <h3>Dá sa vypnúť zvuk skenovania?</h3>
     <p>Áno — ikona reproduktora na obrazovke snímania alebo ⓘ → Nastavenia → Zvuk skenovania: Hlboký vesmír (predvolené, tichý hlboký tón a hvizd), Star Trek (senzorové warble) alebo Bez zvuku. Výška tónu stúpa s pokrytím, nový sektor a dokončenie majú vlastný signál.</p>
+    <h3>Ako nasnímať živú osobu s terčom T2?</h3>
+    <p>Osoba stojí vzpriamene na voľnom mieste (aspoň 1,5 m dookola), <strong>nohy na šírku ramien, ruky mierne od tela</strong>, hlava rovno a pohľad na pevný bod — ruky pritlačené k bokom sú najčastejšia chyba, vnútorné strany paží potom v modeli nebudú. Terč T2 položte <strong>naplocho na podlahu vedľa chodidiel</strong>, asi 20–40 cm nabok; jeden terč na sken. V aplikácii zvoľte profil <strong>Živá osoba</strong>, zamierte na hrudník a ťuknite Nastaviť stred skenu. Potom obíďte <strong>tri okruhy</strong> vo vzdialenosti 1,0–1,2 m: vo výške hlavy so sklonom nadol, vo výške hrudníka vodorovne a v podrepe s telefónom mierne nadvihnutým na nohy. Jeden okruh 15–20 sekúnd, plynulým krokom, celé pod minútu. Nikdy nesnímajte proti oknu a nezabudnite, že hladké jednofarebné oblečenie je pre fotogrametriu najhoršie — koža ide oveľa lepšie. Ak sa osoba pohla, sken zopakujte. Podrobne aj s obrázkami: kapitola 4.2 návodu.</p>
     <h3>Ako snímať?</h3>
     <p>Zamierte na stred subjektu, potvrďte a pomaly ho obchádzajte — snímky sa spúšťajú samy. Radar vpravo hore ukazuje pokrytie. Telo: difúzne svetlo, bez blesku. Predmet: matný kontrastný podklad, obísť v troch výškach.</p>
     <h3>Výpočet trvá dlho / telefón sa zahrieva</h3>
@@ -212,6 +217,9 @@
     <p>iPhone or iPad with iOS 18+. LiDAR (Pro models) is recommended — it provides depth for every frame and the model is built directly in meters. Without LiDAR you can still capture; scale comes from the ARKit trajectory and the calibration target — verify it with a reference.</p>
     <h3>The device does not support photogrammetry — what now?</h3>
     <p>Computing the 3D model needs an A17 Pro / M1 chip or newer (iPhone 15 Pro and later Pro models, iPad with M1+). An older device can still <strong>capture</strong> — even without LiDAR, in which case scale comes from the camera path and the calibration target. Capture, choose <em>Model, findings and frames</em> in Export and AirDrop the package either to a supported iPhone or iPad, or to an <strong>Apple Silicon Mac</strong> into the <em>Fotograme3ka 3D Computation</em> app. The model is computed there and you send the package back to the phone, where it opens as a new scan. Details in the user guide, chapter 5.2.</p>
+    <h3>The target is placed as the guide says, but the app “did not find” it</h3>
+    <p>The most common cause is not the placement but the <strong>distance</strong>. A QR code can only be read when it has enough pixels in the image: a 40 mm target is about 86 px at 1.2 m, which is only enough for a perfectly sharp frame — while walking the frames blur slightly and the code no longer decodes (verified by measurement: at 2 px of blur it stops being readable, it works reliably from about 130 px). <strong>Solution:</strong> during the lap, slow down once and pass over the target from 0.5–0.8 m. Watch the target counter on the capture screen — while it shows zero, the target has not been captured. From version 2.2.2 the app warns about this by itself after 40 frames with “Target not in shot”.</p>
+
     <h3>Where is the calibration target?</h3>
     <p>Scan list → menu ⋯ → <em>Printable calibration target (PDF)</em>. Print at 100 % and check with a ruler (scale 100 mm, QR 40 mm). Place it flat next to the subject.</p>
 
@@ -239,6 +247,8 @@
 
     <h3>Can the scan sound be turned off?</h3>
     <p>Yes — the speaker icon on the capture screen or ⓘ → Settings → Scan sound: Deep Space (default, quiet deep tone and whistle), Star Trek (sensor warble) or No sound.</p>
+    <h3>How do I capture a living person with the T2 target?</h3>
+    <p>The person stands upright in an open space (at least 1.5 m all around), <strong>feet shoulder-width apart, arms slightly away from the body</strong>, head straight and gaze on a fixed point — arms pressed against the sides are the most common mistake, the inner surfaces of the arms will then be missing from the model. Put the T2 target <strong>flat on the floor beside the feet</strong>, about 20–40 cm to the side; one target per scan. In the app choose the <strong>Living person</strong> profile, aim at the chest and tap Set scan centre. Then walk <strong>three laps</strong> at a distance of 1.0–1.2 m: at head height tilted down, at chest height level, and crouching with the phone tilted slightly up at the legs. One lap takes 15–20 seconds at a steady pace, the whole capture under a minute. Never capture against a window, and remember that smooth single-colour clothing is the worst case for photogrammetry — skin works far better. If the person moved, repeat the scan. In detail and with figures: chapter 4.2 of the user guide.</p>
     <h3>How to capture?</h3>
     <p>Aim at the center of the subject, confirm and walk around slowly — frames are captured automatically. The radar in the top right shows coverage. Body: diffuse light, no flash. Object: matte contrasting surface, walk around at three heights.</p>
     <h3>Processing takes long / the phone heats up</h3>
