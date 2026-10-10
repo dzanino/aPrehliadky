@@ -18,7 +18,7 @@ fotogrametria pre znalcov, certifikát triedy A–D, terč T3 · offline forensi
 scanning iPhone, crime scene documentation without cloud, forensic photogrammetry target, forensic 3D
 report PDF.
 
-Author: Ján Šikuta, MD, PhD · forensika.eu@icloud.com. Research and decision-support tool for
+Author: Ján Šikuta, MD, PhD · admin@forensika.eu. Research and decision-support tool for
 qualified professionals — not a certified measuring instrument and not a medical device.
 
 ---
