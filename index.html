@@ -75,7 +75,7 @@
   .foot a{color:var(--blue);font-weight:600}
   @media(max-width:560px){.hero{padding:48px 0 56px}.hero img.app{width:100px;height:100px}.card{padding:22px}}
 </style>
-<link rel="stylesheet" href="glam.css?v=20261017">
+<link rel="stylesheet" href="glam.css?v=20261031b">
 </head>
 <body id="top">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -125,10 +125,11 @@
     <img class="app" src="icon-512.png" alt="aPrehliadky">
     <div class="kicker">Forensika · 3D dokumentácia · verzia 3.2.4 · Fotograme3ka 3D 2.1.1</div>
     <h1>a<span class="accent">Prehliadky</span></h1>
-    <p class="lede">Fotogrametrické 3D snímanie tela a predmetov s LiDARom. Meranie, nálezy, protokol, okolie z LiDARu — všetko v zariadení, bez cloudu a bez AI dopočtu. iPhone sníma, Mac reviduje.</p>
+    <p class="lede">Fotogrametrické 3D snímanie tela a predmetov s LiDARom. Meranie, nálezy, protokol, okolie z LiDARu — všetko v zariadení, bez cloudu a bez AI dopočtu. iPhone sníma, Mac počíta a reviduje.</p>
     <div class="btns">
       <a class="btn-primary" href="#sk">Slovensky</a>
       <a class="btn-ghost" href="#en">English</a>
+      <a class="btn-ghost" href="#overenie">Stav overenia · Validation</a>
       <a class="btn-ghost" href="support.html">Podpora · Support</a>
       <a class="btn-ghost" href="aPrehliadky_rychly_sprievodca_SK.pdf" target="_blank" rel="noopener">Rýchly sprievodca (PDF)</a>
       <a class="btn-ghost" href="aPrehliadky_navod_SK.pdf" target="_blank" rel="noopener">Návod (PDF)</a>
@@ -190,12 +191,54 @@
 </section>
 
 
+<section class="block" id="overenie">
+  <div class="card">
+    <h2>Stav overenia presnosti · Validation status</h2>
+    <ul>
+      <li><strong>Overené na predmete:</strong> štítok so známou dĺžkou 75 mm zadaný ako etalón; výška štítku z modelu 35,7 mm, pravítko 36 mm, rozdiel v rámci uvedenej neistoty ± 5,9 mm (k = 2).</li>
+      <li><strong>Overené na figuríne:</strong> celé telo v simulačných podmienkach, 364 snímok z iPhonu, detailný model na Macu približne za 15 minút, scéna vrátane okolia tela.</li>
+      <li><strong>Pravidlo pre prax:</strong> bez kalibračného terča T3 alebo etalónu známej dĺžky je mierka orientačná (rádovo ± 5 %) a aplikácia to sama označí v prehliadke, protokole aj certifikáte (trieda C). Na meranie do spisu alebo posudku vždy terč T3 alebo etalón; trieda A vyžaduje dve nezávislé overenia mierky.</li>
+      <li><strong>Prebieha:</strong> pilot s kolegami z pracovísk ÚDZS a validácia na viacerých pracoviskách podľa jednotného protokolu (rovnaký predmet, tri skeny, skutočné rozmery z posuvného meradla). Presnosť mierky z dráhy kamery bez terča práve preverujeme na reálnych skenoch; výsledky a prípadné opravy zverejníme na tejto stránke.</li>
+      <li><strong>Zapojenie:</strong> <a href="aPrehliadky_validacny_protokol_v1.pdf" target="_blank" rel="noopener">Validačný protokol v1 (PDF, slovensky)</a> · výsledky a otázky na <a href="mailto:admin@forensika.eu">admin@forensika.eu</a>.</li>
+    </ul>
+    <hr>
+    <ul>
+      <li><strong>Verified on an object:</strong> a label of known length 75 mm entered as the reference; label height from the model 35.7 mm, ruler 36 mm, the difference within the stated uncertainty ± 5.9 mm (k = 2).</li>
+      <li><strong>Verified on a mannequin:</strong> a whole body in simulation conditions, 364 frames from the iPhone, a detailed model on a Mac in about 15 minutes, the scene including the surroundings of the body.</li>
+      <li><strong>Rule for practice:</strong> without the T3 calibration target or a reference of known length the scale is indicative (of the order of ± 5 %) and the app flags this itself in the viewer, report and certificate (class C). For measurements in a case file or expert opinion always use the T3 target or a reference; class A requires two independent scale verifications.</li>
+      <li><strong>In progress:</strong> a pilot with colleagues from ÚDZS departments and a multi-site validation following one protocol (same object, three scans, true dimensions from a caliper). We are currently reviewing the accuracy of the camera-path scale without a target on real scans; results and any fixes will be published on this page.</li>
+      <li><strong>Get involved:</strong> validation protocol v1 (PDF, Slovak) above · results and questions to <a href="mailto:admin@forensika.eu">admin@forensika.eu</a>.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="vybava">
+  <div class="card">
+    <h2>Čo potrebujete · What you need</h2>
+    <ul>
+      <li><strong>Snímanie:</strong> iPhone s iOS 18; odporúčaný iPhone Pro s LiDARom (iPhone 12 Pro a novší, stačia aj staršie kusy). Bez LiDARu sa dá snímať tiež, mierku potom dodá kalibračný terč.</li>
+      <li><strong>Výpočet v telefóne:</strong> iPhone alebo iPad s čipom A17 Pro, M1 a novším (rýchly náhľad z 200 snímok).</li>
+      <li><strong>Výpočet na Macu:</strong> Mac s Apple Silicon (M1 a novší) a Fotograme3ka 3D; pre najdetailnejšie modely odporúčame M4 a aspoň 24 GB pamäte.</li>
+      <li><strong>Výbava obhliadky:</strong> kalibračný terč T3 vytlačený v mierke 100 % na matný papier (laminovať len matnou fóliou), posuvné meradlo na overenie tlače.</li>
+      <li><strong>Softvér:</strong> aPrehliadky zadarmo, bez účtu, servera a cloudu; dáta neopúšťajú zariadenie, kým ich sami neexportujete.</li>
+    </ul>
+    <hr>
+    <ul>
+      <li><strong>Capture:</strong> an iPhone with iOS 18; recommended an iPhone Pro with LiDAR (iPhone 12 Pro or newer, older units are fine). Capture also works without LiDAR; the calibration target then provides the scale.</li>
+      <li><strong>Processing on the phone:</strong> an iPhone or iPad with an A17 Pro, M1 or newer chip (quick preview from 200 frames).</li>
+      <li><strong>Processing on a Mac:</strong> a Mac with Apple Silicon (M1 or newer) and Fotograme3ka 3D; for the most detailed models we recommend an M4 with at least 24 GB of memory.</li>
+      <li><strong>Examination kit:</strong> the T3 calibration target printed at 100 % on matte paper (laminate only with a matte film), a caliper to check the print.</li>
+      <li><strong>Software:</strong> aPrehliadky is free, with no account, server or cloud; data never leaves the device until you export it.</li>
+    </ul>
+  </div>
+</section>
+
 <section class="block" id="postup">
   <div class="card">
     <h2>Čo kedy použiť · What to use when</h2>
     <p><strong>Video alebo foto?</strong> <em>Tichý — video 4K</em>: hĺbka z toho istého okamihu ako obraz, bez zvuku, plynulé, tolerantné k pohybu — pre geometriu a mierku. <em>Foto — plné rozlíšenie</em>: dvojnásobná textúra, ale pomalé, citlivé na pohyb a teplo — pre statické detaily (rany, tetovania, krvné stopy, malé predmety). Pravidlo: <strong>geometria a mierka → video, textúra → foto.</strong></p>
     <ul>
-      <li><strong>Mŕtve telo:</strong> Zomrelý · Prehľad · video · terč T2 pri trupe · okolie z LiDARu zapnuté; každý nález na meranie ako samostatný sken Detail vo Foto režime s terčom vedľa.</li>
+      <li><strong>Mŕtve telo:</strong> Zomrelý · Prehľad · video · terč T3 pri trupe · okolie z LiDARu zapnuté; každý nález na meranie ako samostatný sken Detail vo Foto režime s terčom vedľa.</li>
       <li><strong>Telo a okolie</strong> (vražda, samovražda, krvné stopy, predmety): sken A Prehľad · video · po obídení tela prejsť kamerou po podlahe, stenách a predmetoch; rozsah rekonštrukcie Subjekt s okolím; vzdialenosti od stien merať na Okolí z LiDARu. Skeny B, C…: každá stopa a predmet ako Predmet · Detail · Foto · terč v rovine stopy.</li>
       <li><strong>Živá osoba:</strong> Živá osoba · Prehľad · video (do minúty); poranenie ako Detail · video; foto len ak osoba udrží 1–2 min bez pohybu.</li>
       <li><strong>Predmet:</strong> Predmet · Detail · Foto · matný podklad · tri výšky; veľký objekt Prehľad · video.</li>
@@ -207,7 +250,7 @@
     <hr>
     <p><strong>Video or photo?</strong> <em>Silent — 4K video</em>: depth from the same instant as the image, silent, smooth, tolerant of movement — for geometry and scale. <em>Photo — full resolution</em>: twice the texture, but slow, sensitive to movement and heat — for static details (wounds, tattoos, blood stains, small objects). Rule: <strong>geometry and scale → video, texture → photo.</strong></p>
     <ul>
-      <li><strong>Deceased body:</strong> Deceased · Overview · video · T2 target beside the trunk · surroundings from LiDAR on; every finding to be measured as a separate Detail scan in Photo mode with the target beside it.</li>
+      <li><strong>Deceased body:</strong> Deceased · Overview · video · T3 target beside the trunk · surroundings from LiDAR on; every finding to be measured as a separate Detail scan in Photo mode with the target beside it.</li>
       <li><strong>Body and surroundings</strong> (homicide, suicide, blood stains, objects): scan A Overview · video · after circling the body sweep the camera over the floor, walls and objects; reconstruction extent Subject with surroundings; measure distances from walls on the Surroundings from LiDAR. Scans B, C…: every trace and object as Object · Detail · Photo · target in the plane of the trace.</li>
       <li><strong>Living person:</strong> Living person · Overview · video (under a minute); an injury as Detail · video; photo only if the person can hold still for 1–2 min.</li>
       <li><strong>Object:</strong> Object · Detail · Photo · matte background · three heights; a large object Overview · video.</li>
@@ -310,6 +353,7 @@
     <p><a href="aPrehliadky_navod_SK.pdf" target="_blank" rel="noopener">aPrehliadky — návod 3.2 (PDF, slovensky)</a> — kontrolný zoznam pred snímaním so schémami snímania, postup pre mŕtve telo, živú osobu, predmet a scénu, výpočet vrátane výpočtu na Macu, praktické príklady a vysvetlenia (orez, vzdialenosť telefónu, mierka), prehliadka s režimami Merať / Označiť nález, presné označovanie nálezov, meranie s najmenšou chybou, okolie z LiDARu, protokol, Mac, riešenie problémov.</p>
     <p><a href="aPrehliadky_user_guide_EN.pdf" target="_blank" rel="noopener">aPrehliadky — user guide 3.2 (PDF, English)</a> — pre-capture checklist with capture diagrams, procedure for a deceased body, a living person, an object and a scene, processing including computing on a Mac, practical examples and explanations (crop, phone distance, scale), examination with Measure / Mark finding modes, precise marking of findings, measuring with the smallest error, surroundings from LiDAR, report, Mac, troubleshooting.</p>
     <p><a href="aPrehliadky_metodika_certifikacie_SK.pdf" target="_blank" rel="noopener">Metodika certifikácie 3D dokumentácie v3 (PDF, slovensky)</a> · <a href="aPrehliadky_certification_methodology_EN.pdf" target="_blank" rel="noopener">Certification methodology v3 (PDF, English)</a> — zdroje mierky a ich nezávislosť (dráha kamery, terč T3 v modeli, etalón), konzistencia zdrojov (Birgeho pomer), neistota U, trieda dokumentácie A–D (etalón ≥ 290 mm, najhoršie z overení, tolerancia max(1 %, U)), stopa snímania s prerušeniami, záznam o výpočte, certifikovaný obsah a podpis, overenie certifikátu, postup validácie zariadenia terčom T3.</p>
+    <p><a href="aPrehliadky_validacny_protokol_v1.pdf" target="_blank" rel="noopener">Validačný protokol v1 (PDF, slovensky)</a>: jednotné meranie na rovnakom predmete pre spolupracujúce pracoviská (tri skeny, päť referenčných rozmerov, etalón, zaslanie balíka .f3d a validačného CSV) · multi-site validation protocol (Slovak).</p>
     <p><a href="recenzia_aPrehliadky2026.pdf" target="_blank" rel="noopener">Recenzia aPrehliadky 2026 / aPrehliadky Review 2026 (PDF, SK + EN)</a> — úprimné hodnotenie podľa kritérií článku <em>Mobilné 3D skenovanie založené na LiDAR-e a fotogrametrii v súdnolekárskej dokumentácii</em> (Fol Soc Med Leg Slov 2026; 16 (1): 27–32): porovnanie s Polycam a Kiri Engine, GDPR, cloud, presnosť, metrológia, ceny, výhody a limity. / A candid assessment against the criteria of the FSMLS 1/2026 review paper: comparison with Polycam and Kiri Engine, GDPR, cloud, accuracy, metrology, prices, strengths and limits.</p>
   </div>
 </section>
