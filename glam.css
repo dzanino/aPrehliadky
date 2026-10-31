@@ -118,3 +118,11 @@ header{background:rgba(6,11,20,.62)!important;border-bottom:1px solid var(--g-li
 .d .ico svg{stroke:#a9d6ff!important;}
 .foot,.foot *{color:var(--g-soft);}
 .foot a{color:#fff!important;}
+
+/* 2026-10-31: kontrast textu v kartách (inline štýly stránok mali svetlú tému #4d647a na tmavom pozadí, ~2:1) */
+.card p,.card li,.d p,.sec-head p{color:var(--g-muted)!important;}
+.note{color:var(--g-ink2)!important;}
+.card .muted,.card .small,.small{color:var(--g-soft)!important;}
+/* 2026-10-31: hlavička na mobile (3 odkazy sa zalamovali do výšky 64 px a prvý bol orezaný) */
+@media(max-width:560px){.nav{height:auto!important;padding:10px 0!important;flex-wrap:wrap;row-gap:8px}
+  .nav .links{gap:5px}.nav .links a{font-size:12px!important;padding:6px 10px!important}}
