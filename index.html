@@ -7,7 +7,14 @@
 <meta name="description" content="aPrehliadky — fotogrametrické 3D snímanie tela a predmetov s LiDARom, meranie (mm, cm, m, in), dráha po povrchu, nálezy, protokol, LiDAR mesh miestnosti. Bez cloudu, bez NeRF/3DGS. iPhone, iPad, Mac. Možný doplnok k ePrehliadkam (ÚDZS). / Photogrammetric 3D body and object capture with LiDAR, on-device, no AI reconstruction; iPhone, iPad, Mac.">
 <meta property="og:title" content="aPrehliadky — 3D dokumentácia tela a predmetov · Forensika">
 <meta property="og:description" content="aPrehliadky — fotogrametrické 3D snímanie tela a predmetov s LiDARom, meranie v mm, nálezy, protokol. Všetko v telefóne, bez cloudu. / Photogrammetric 3D body and object capture with LiDAR, on-device.">
-<meta property="og:image" content="icon-512.png">
+<meta property="og:image" content="https://dzanino.github.io/aPrehliadky/img/og-aprehliadky.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Model figuríny v aplikácii Fotograme3ka 3D s meraním dráhy po povrchu">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dzanino.github.io/aPrehliadky/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dzanino.github.io/aPrehliadky/img/og-aprehliadky.jpg">
 <link rel="icon" href="icon-512.png" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
@@ -67,6 +74,12 @@
   .card a:hover{text-decoration:underline}
   .card hr{border:none;border-top:1px solid var(--line);margin:26px 0}
   .card .muted{color:#8a99ab;font-size:.85rem}
+  .gallery{display:grid;grid-template-columns:1fr;gap:16px;margin-top:6px}
+  @media(min-width:760px){.gallery{grid-template-columns:1fr 1.7fr;align-items:start}.gallery .wide{grid-column:1 / -1}}
+  .gallery img.portrait{max-width:380px;margin:0 auto}
+  .gallery figure{margin:0}
+  .gallery img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--line)}
+  .gallery figcaption{font-size:13.5px;line-height:1.5;margin-top:8px;color:var(--muted)}
   .note{background:var(--paper-2);border-left:4px solid var(--blue);padding:12px 16px;border-radius:10px;color:#3d5a74;font-size:14.5px;margin:14px 0}
   .pills{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
   .pill{font-size:12px;font-weight:600;color:#3d5a74;background:var(--paper-2);border:1px solid var(--line);padding:5px 11px;border-radius:999px}
@@ -129,6 +142,7 @@
     <div class="btns">
       <a class="btn-primary" href="#sk">Slovensky</a>
       <a class="btn-ghost" href="#en">English</a>
+      <a class="btn-ghost" href="#ukazky">Ukážky · Examples</a>
       <a class="btn-ghost" href="#overenie">Stav overenia · Validation</a>
       <a class="btn-ghost" href="support.html">Podpora · Support</a>
       <a class="btn-ghost" href="aPrehliadky_rychly_sprievodca_SK.pdf" target="_blank" rel="noopener">Rýchly sprievodca (PDF)</a>
@@ -191,6 +205,20 @@
 </section>
 
 
+<section class="block" id="ukazky">
+  <div class="card">
+    <h2>Ukážky · Examples</h2>
+    <div class="gallery">
+      <figure class="wide"><img src="img/galeria-figurina-mac.jpg" alt="Model simulačnej figuríny vo Fotograme3ka 3D na Macu s meraním dráhy po povrchu medzi nálezmi" loading="lazy" width="1600" height="1000">
+        <figcaption><strong>Simulačná figurína, Fotograme3ka 3D na Macu:</strong> 364 snímok z iPhonu, nálezy priamo na povrchu modelu a meranie dráhy po povrchu s neistotou (k = 2). Bez terča je mierka orientačná a aplikácia to v hlavičke sama uvádza. · <em>Simulation mannequin on a Mac: findings on the model surface, a path measurement with its uncertainty; without a target the scale is flagged as indicative.</em></figcaption></figure>
+      <figure><img class="portrait" src="img/galeria-kos-meranie.jpg" alt="Meranie výšky štítku na 3D modeli koša v aplikácii aPrehliadky: 35,7 mm" loading="lazy" width="592" height="840">
+        <figcaption><strong>Kontrolné meranie na predmete:</strong> dlhá strana štítku 75 mm zadaná ako etalón, výška štítku z modelu 35,7 mm ± 5,9 mm, pravítko 36 mm. · <em>Check on an object: 75 mm reference, label height 35.7 ± 5.9 mm from the model, 36 mm by ruler.</em></figcaption></figure>
+      <figure><img src="img/galeria-terce-t3.jpg" alt="Vytlačené a zalaminované kalibračné terče T3 s fiduciálmi, mierkou a farebnou škálou" loading="lazy" width="1330" height="590">
+        <figcaption><strong>Kalibračné terče T3:</strong> tlačené fiduciály, milimetrová mierka a sivá a farebná škála, zalaminované v matnej fólii; dávajú mierku nezávislú od LiDARu aj od dráhy kamery. · <em>T3 calibration targets: printed fiducials, mm scale, grey and colour patches, matte-laminated; a scale independent of LiDAR and the camera path.</em></figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <section class="block" id="overenie">
   <div class="card">
     <h2>Stav overenia presnosti · Validation status</h2>
@@ -207,7 +235,7 @@
       <li><strong>Verified on a mannequin:</strong> a whole body in simulation conditions, 364 frames from the iPhone, a detailed model on a Mac in about 15 minutes, the scene including the surroundings of the body.</li>
       <li><strong>Rule for practice:</strong> without the T3 calibration target or a reference of known length the scale is indicative (of the order of ± 5 %) and the app flags this itself in the viewer, report and certificate (class C). For measurements in a case file or expert opinion always use the T3 target or a reference; class A requires two independent scale verifications.</li>
       <li><strong>In progress:</strong> a pilot with colleagues from ÚDZS departments and a multi-site validation following one protocol (same object, three scans, true dimensions from a caliper). We are currently reviewing the accuracy of the camera-path scale without a target on real scans; results and any fixes will be published on this page.</li>
-      <li><strong>Get involved:</strong> validation protocol v1 (PDF, Slovak) above · results and questions to <a href="mailto:admin@forensika.eu">admin@forensika.eu</a>.</li>
+      <li><strong>Get involved:</strong> <a href="aPrehliadky_validation_protocol_v1_EN.pdf" target="_blank" rel="noopener">Validation protocol v1 (PDF, English)</a> · results and questions to <a href="mailto:admin@forensika.eu">admin@forensika.eu</a>.</li>
     </ul>
   </div>
 </section>
@@ -353,7 +381,7 @@
     <p><a href="aPrehliadky_navod_SK.pdf" target="_blank" rel="noopener">aPrehliadky — návod 3.2 (PDF, slovensky)</a> — kontrolný zoznam pred snímaním so schémami snímania, postup pre mŕtve telo, živú osobu, predmet a scénu, výpočet vrátane výpočtu na Macu, praktické príklady a vysvetlenia (orez, vzdialenosť telefónu, mierka), prehliadka s režimami Merať / Označiť nález, presné označovanie nálezov, meranie s najmenšou chybou, okolie z LiDARu, protokol, Mac, riešenie problémov.</p>
     <p><a href="aPrehliadky_user_guide_EN.pdf" target="_blank" rel="noopener">aPrehliadky — user guide 3.2 (PDF, English)</a> — pre-capture checklist with capture diagrams, procedure for a deceased body, a living person, an object and a scene, processing including computing on a Mac, practical examples and explanations (crop, phone distance, scale), examination with Measure / Mark finding modes, precise marking of findings, measuring with the smallest error, surroundings from LiDAR, report, Mac, troubleshooting.</p>
     <p><a href="aPrehliadky_metodika_certifikacie_SK.pdf" target="_blank" rel="noopener">Metodika certifikácie 3D dokumentácie v3 (PDF, slovensky)</a> · <a href="aPrehliadky_certification_methodology_EN.pdf" target="_blank" rel="noopener">Certification methodology v3 (PDF, English)</a> — zdroje mierky a ich nezávislosť (dráha kamery, terč T3 v modeli, etalón), konzistencia zdrojov (Birgeho pomer), neistota U, trieda dokumentácie A–D (etalón ≥ 290 mm, najhoršie z overení, tolerancia max(1 %, U)), stopa snímania s prerušeniami, záznam o výpočte, certifikovaný obsah a podpis, overenie certifikátu, postup validácie zariadenia terčom T3.</p>
-    <p><a href="aPrehliadky_validacny_protokol_v1.pdf" target="_blank" rel="noopener">Validačný protokol v1 (PDF, slovensky)</a>: jednotné meranie na rovnakom predmete pre spolupracujúce pracoviská (tri skeny, päť referenčných rozmerov, etalón, zaslanie balíka .f3d a validačného CSV) · multi-site validation protocol (Slovak).</p>
+    <p><a href="aPrehliadky_validacny_protokol_v1.pdf" target="_blank" rel="noopener">Validačný protokol v1 (PDF, slovensky)</a>: jednotné meranie na rovnakom predmete pre spolupracujúce pracoviská (tri skeny, päť referenčných rozmerov, etalón, zaslanie balíka .f3d a validačného CSV) · <a href="aPrehliadky_validation_protocol_v1_EN.pdf" target="_blank" rel="noopener">Validation protocol v1 (PDF, English)</a>: uniform measurement of the same object for collaborating departments.</p>
     <p><a href="recenzia_aPrehliadky2026.pdf" target="_blank" rel="noopener">Recenzia aPrehliadky 2026 / aPrehliadky Review 2026 (PDF, SK + EN)</a> — úprimné hodnotenie podľa kritérií článku <em>Mobilné 3D skenovanie založené na LiDAR-e a fotogrametrii v súdnolekárskej dokumentácii</em> (Fol Soc Med Leg Slov 2026; 16 (1): 27–32): porovnanie s Polycam a Kiri Engine, GDPR, cloud, presnosť, metrológia, ceny, výhody a limity. / A candid assessment against the criteria of the FSMLS 1/2026 review paper: comparison with Polycam and Kiri Engine, GDPR, cloud, accuracy, metrology, prices, strengths and limits.</p>
   </div>
 </section>
