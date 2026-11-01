@@ -187,6 +187,9 @@
     <h3>Čo znamená chybový kód (napr. E30, „error 1“)?</h3>
     <p>Každá chyba sa zobrazí s kódom <strong>E-xx</strong>, významom a nápravou; v hranatej zátvorke je systémová správa. <strong>E30</strong> = fotogrametria nedokázala spárovať snímky (systémový kód 1): prepočítajte s citlivosťou Vysoká a rozsahom Celá scéna, potom vstup „Priečinok bez hĺbky“, inak sken zopakujte pomalšie s väčším prekrytím. <strong>E33</strong> = málo miesta, <strong>E4x</strong> = ARKit (kamera, sledovanie), <strong>E60</strong> = App Store. Úplná tabuľka je v návode (kapitola 14).</p>
 
+    <h3>Terč T3 sa pri tele nedá položiť. Čím doložiť mierku?</h3>
+    <p>Použite známy rozmer, ktorý máte pri sebe alebo je v scéne, položený naplocho vedľa tela pred skenom: forenzná fotomierka z obhliadkovej súpravy, skladací alebo zvinovací meter, list A4 (297 × 210 mm) alebo karta formátu ISO (platobná karta, občiansky preukaz: 85,60 × 53,98 mm). Po výpočte ho v modeli zmerajte ako Etalón (Doladiť) a zadajte hodnotu zo stupnice alebo z normy. Karta a fotomierka pod 290 mm potvrdia najviac triedu B, meter s úsekom aspoň 290 mm môže dať triedu A. Keď nie je nič, sken s LiDARom má mierku z LiDAR hĺbky (trieda B, asi 2 %). Pri hnilobnej tekutine, lesklom alebo tmavom povrchu je neistota vyššia; vtedy etalón doplňte vždy. Posuvné meradlo na mieste netreba, patrí do validácie. Podrobne návod, kapitola 10.2.</p>
+
     <h3>Dá sa zmeniť ikona aplikácie? (3.2.6)</h3>
     <p>Áno, v iPhone: Nastavenia (ozubené koliesko) → Ikona aplikácie. Na výber je Mieridlo terča (predvolená), Klasická (doterajšia), Čistá silueta a Fotogrametrická sieť. iOS pri zmene vždy zobrazí krátke systémové hlásenie, to sa vypnúť nedá. Fotograme3ka 3D na Macu má jednu ikonu (jantárové mieridlo).</p>
 
@@ -275,6 +278,9 @@
 
     <h3>What does an error code mean (e.g. E30, “error 1”)?</h3>
     <p>Every error is shown with a code <strong>E-xx</strong>, its meaning and a remedy; the system message is in square brackets. <strong>E30</strong> = photogrammetry could not match the frames (system code 1): recompute with sensitivity High and extent Whole scene, then input “Folder without depth”, otherwise repeat the scan more slowly with more overlap. <strong>E33</strong> = not enough space, <strong>E4x</strong> = ARKit (camera, tracking), <strong>E60</strong> = App Store. The full table is in the user guide (chapter 14).</p>
+
+    <h3>The T3 target cannot be laid next to the body. What substantiates the scale?</h3>
+    <p>Use a known dimension you carry or that is in the scene, laid flat next to the body before scanning: a forensic photo scale from the examination kit, a folding rule or tape measure, an A4 sheet (297 × 210 mm) or an ISO card (bank card, ID card: 85.60 × 53.98 mm). After processing measure it in the model as a Reference (Fine-tune) and enter the value from the scale or the standard. A card or photo scale under 290 mm confirms at most class B; a rule with a segment of at least 290 mm can give class A. With nothing at all, a LiDAR scan has the scale from LiDAR depth (class B, about 2 %). With decomposition fluid or a glossy or dark surface the uncertainty is higher; always add a reference then. No caliper is needed at the scene, it belongs to validation. Details: user guide, chapter 10.2.</p>
 
     <h3>Can I change the app icon? (3.2.6)</h3>
     <p>Yes, on the iPhone: Settings (the gear) → App icon. The choices are Target reticle (default), Classic (the previous one), Clean silhouette and Photogrammetry mesh. iOS always shows a short system notice when the icon changes; it cannot be turned off. Fotograme3ka 3D on the Mac has one icon (the amber reticle).</p>
