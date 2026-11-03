@@ -13,7 +13,7 @@ no upload.
 - Guides, calibration target T3 (fiducial centres 247.00 mm), certification methodology: this site → https://dzanino.github.io/aPrehliadky/
 - Part of the **Forensika** family of offline forensic-medicine apps: https://forensika.eu/
 
-Keywords: forenzná 3D dokumentácia, obhliadka mŕtveho LiDAR, 3D dokumentácia miesta činu iPhone,
+Keywords: forenzná 3D dokumentácia, prehliadka mŕtveho LiDAR, 3D dokumentácia miesta činu iPhone,
 fotogrametria pre znalcov, certifikát triedy A–D, terč T3 · offline forensic LiDAR app, forensic 3D
 scanning iPhone, crime scene documentation without cloud, forensic photogrammetry target, forensic 3D
 report PDF.
