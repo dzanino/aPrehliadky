@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; media-src 'self'; connect-src 'self' https://abacus.jasoncameron.dev; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>aPrehliadky — ochrana súkromia / privacy policy</title>
-<meta name="description" content="aPrehliadky — zásady ochrany súkromia. Žiadne údaje neopúšťajú zariadenie. / Privacy policy. No data leaves the device.">
-<meta property="og:title" content="aPrehliadky — ochrana súkromia / privacy policy">
-<meta property="og:description" content="aPrehliadky — zásady ochrany súkromia. Žiadne údaje neopúšťajú zariadenie. / Privacy policy. No data leaves the device.">
+<link rel="canonical" href="https://dzanino.github.io/aPrehliadky/privacy.html">
+<title>aPrehliadky - ochrana súkromia / privacy policy</title>
+<meta name="description" content="aPrehliadky - zásady ochrany súkromia. Žiadne údaje neopúšťajú zariadenie. / Privacy policy. No data leaves the device.">
+<meta property="og:title" content="aPrehliadky - ochrana súkromia / privacy policy">
+<meta property="og:description" content="aPrehliadky - zásady ochrany súkromia. Žiadne údaje neopúšťajú zariadenie. / Privacy policy. No data leaves the device.">
 <meta property="og:image" content="icon-512.png">
 <link rel="icon" href="icon-512.png" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -142,15 +143,15 @@
     <p>To isté platí pre <strong>Fotograme3ka 3D</strong>, samostatnú aplikáciu pre Mac, ktorá z balíka <code>.f3d</code> vypočíta 3D model a slúži na prehliadku. Beží v sandboxe, číta a zapisuje výhradne súbory, ktoré sami vyberiete alebo pretiahnete do okna, a nepripája sa na sieť. Balík ani model neopustia váš Mac.</p>
     <h3>Aké údaje aplikácia spracúva a kde</h3>
     <ul>
-      <li><strong>Fotoaparát a LiDAR</strong> — na snímanie subjektu. Snímky a hĺbka sa ukladajú do priečinka aplikácie v zariadení. Nikam sa neodosielajú.</li>
-      <li><strong>Metadáta prípadu</strong> (označenie, prehliadajúci, miesto, poznámka) — zadáva ich používateľ, ukladajú sa lokálne v manifeste skenu.</li>
-      <li><strong>Rekonštrukcia 3D modelu</strong> — beží výhradne na zariadení (RealityKit Object Capture). Žiadny cloud.</li>
-      <li><strong>Exporty</strong> (balík .f3d, protokol PDF, certifikát, USDZ) — vznikajú len na váš pokyn a ukladajú sa do priečinka Súbory → aPrehliadky → Exporty. Kam ich ďalej pošlete, rozhodujete vy.</li>
-      <li><strong>Notifikácie</strong> — lokálne (dokončenie výpočtu), bez servera.</li>
-      <li><strong>Diagnostika</strong> — aplikácia si do vlastného priečinka zapisuje krátky denník behu (verzia, fáza, voľná pamäť, chybové kódy) a od 3.2 aj správu systému o páde (MetricKit), aby po ukončení systémom vedela povedať, v ktorej fáze sa to stalo. Denník zostáva v zariadení; posielate ho len vy, keď hlásite chybu. Snímky ani modely neobsahuje.</li>
-      <li><strong>Zálohy zariadenia</strong> — skeny, exporty a archív sú v priečinku aplikácie (Súbory → Na mojom iPhone → aPrehliadky) a sú <strong>súčasťou zálohy zariadenia</strong> (iCloud alebo Finder/Mac), ak ju máte zapnutú. Či zálohu povoliť, rozhoduje pracovisko podľa svojich pravidiel o zdravotnej dokumentácii; sken sa dá kedykoľvek zmazať zo zoznamu a tým aj z budúcich záloh. Aplikácia sama nič do iCloudu neposiela.</li>
+      <li><strong>Fotoaparát a LiDAR</strong> - na snímanie subjektu. Snímky a hĺbka sa ukladajú do priečinka aplikácie v zariadení. Nikam sa neodosielajú.</li>
+      <li><strong>Metadáta prípadu</strong> (označenie, prehliadajúci, miesto, poznámka) - zadáva ich používateľ, ukladajú sa lokálne v manifeste skenu.</li>
+      <li><strong>Rekonštrukcia 3D modelu</strong> - beží výhradne na zariadení (RealityKit Object Capture). Žiadny cloud.</li>
+      <li><strong>Exporty</strong> (balík .f3d, protokol PDF, certifikát, USDZ) - vznikajú len na váš pokyn a ukladajú sa do priečinka Súbory → aPrehliadky → Exporty. Kam ich ďalej pošlete, rozhodujete vy.</li>
+      <li><strong>Notifikácie</strong> - lokálne (dokončenie výpočtu), bez servera.</li>
+      <li><strong>Diagnostika</strong> - aplikácia si do vlastného priečinka zapisuje krátky denník behu (verzia, fáza, voľná pamäť, chybové kódy) a od 3.2 aj správu systému o páde (MetricKit), aby po ukončení systémom vedela povedať, v ktorej fáze sa to stalo. Denník zostáva v zariadení; posielate ho len vy, keď hlásite chybu. Snímky ani modely neobsahuje.</li>
+      <li><strong>Zálohy zariadenia</strong> - skeny, exporty a archív sú v priečinku aplikácie (Súbory → Na mojom iPhone → aPrehliadky) a sú <strong>súčasťou zálohy zariadenia</strong> (iCloud alebo Finder/Mac), ak ju máte zapnutú. Či zálohu povoliť, rozhoduje pracovisko podľa svojich pravidiel o zdravotnej dokumentácii; sken sa dá kedykoľvek zmazať zo zoznamu a tým aj z budúcich záloh. Aplikácia sama nič do iCloudu neposiela.</li>
     </ul>
-    <h3>Donor a Pro — nepovinné poplatky (In-App Purchase)</h3>
+    <h3>Donor a Pro - nepovinné poplatky (In-App Purchase)</h3>
     <p>Platbu spracúva výhradne Apple (StoreKit). Aplikácia nevidí žiadne platobné údaje ani identitu platiacej osoby; dostáva len potvrdenie transakcie. Dar sám osebe žiadnu funkciu neodomyká (dary sa len započítavajú do licencie Pro, pozri Podporu); aplikácia je plne funkčná aj bez neho. Vrstva <strong>Pro</strong> (podpis balíkov kľúčom zariadenia, názov pracoviska na protokole) je viazaná na Apple ID prihlásené v App Store a overuje sa výlučne lokálne cez StoreKit; nič sa neposiela na naše servery. Kryptografický kľúč na podpis vzniká v zariadení (Secure Enclave, keď je dostupná) a nikdy ho neopúšťa; v balíku je len verejný kľúč a podpis.</p>
     <p>Dobrovoľné <strong>počítadlo podpory</strong> na hlavnej obrazovke je len lokálne pripomenutie; nič neodosiela a dá sa stlmiť.</p>
     <h3>Zodpovednosť za obsah</h3>
@@ -171,15 +172,15 @@
     <p>The same applies to <strong>Fotograme3ka 3D</strong>, the separate Mac app that computes a 3D model from an <code>.f3d</code> package and serves as an examination tool. It runs in a sandbox, reads and writes only the files you select or drag into the window, and makes no network connections. Neither the package nor the model leaves your Mac.</p>
     <h3>What the app processes and where</h3>
     <ul>
-      <li><strong>Camera and LiDAR</strong> — to capture the subject. Frames and depth are stored in the app's folder on the device. They are never uploaded.</li>
-      <li><strong>Case metadata</strong> (reference, examiner, location, note) — entered by the user, stored locally in the scan manifest.</li>
-      <li><strong>3D reconstruction</strong> — runs entirely on the device (RealityKit Object Capture). No cloud.</li>
-      <li><strong>Exports</strong> (.f3d package, PDF report, certificate, USDZ) — created only on your request and saved to Files → aPrehliadky → Exporty. Where you send them is your decision.</li>
-      <li><strong>Notifications</strong> — local only (processing finished), no server.</li>
-      <li><strong>Diagnostics</strong> — the app keeps a short run log in its own folder (version, phase, free memory, error codes) and, from 3.2, the system's crash report (MetricKit), so that after a system termination it can say in which phase it happened. The log stays on the device; only you send it, when reporting a bug. It contains no frames or models.</li>
-      <li><strong>Device backups</strong> — scans, exports and the archive live in the app's folder (Files → On My iPhone → aPrehliadky) and are <strong>part of the device backup</strong> (iCloud or Finder/Mac) if you have it enabled. Whether to allow the backup is your institution's decision under its medical-records rules; a scan can be deleted from the list at any time and thereby from future backups. The app itself sends nothing to iCloud.</li>
+      <li><strong>Camera and LiDAR</strong> - to capture the subject. Frames and depth are stored in the app's folder on the device. They are never uploaded.</li>
+      <li><strong>Case metadata</strong> (reference, examiner, location, note) - entered by the user, stored locally in the scan manifest.</li>
+      <li><strong>3D reconstruction</strong> - runs entirely on the device (RealityKit Object Capture). No cloud.</li>
+      <li><strong>Exports</strong> (.f3d package, PDF report, certificate, USDZ) - created only on your request and saved to Files → aPrehliadky → Exporty. Where you send them is your decision.</li>
+      <li><strong>Notifications</strong> - local only (processing finished), no server.</li>
+      <li><strong>Diagnostics</strong> - the app keeps a short run log in its own folder (version, phase, free memory, error codes) and, from 3.2, the system's crash report (MetricKit), so that after a system termination it can say in which phase it happened. The log stays on the device; only you send it, when reporting a bug. It contains no frames or models.</li>
+      <li><strong>Device backups</strong> - scans, exports and the archive live in the app's folder (Files → On My iPhone → aPrehliadky) and are <strong>part of the device backup</strong> (iCloud or Finder/Mac) if you have it enabled. Whether to allow the backup is your institution's decision under its medical-records rules; a scan can be deleted from the list at any time and thereby from future backups. The app itself sends nothing to iCloud.</li>
     </ul>
-    <h3>Donor and Pro — optional fees (In-App Purchase)</h3>
+    <h3>Donor and Pro - optional fees (In-App Purchase)</h3>
     <p>Payment is handled exclusively by Apple (StoreKit). The app sees no payment details or identity of the payer; it only receives a transaction confirmation. A donation by itself unlocks no feature (donations only count towards the Pro licence, see Support); the app is fully functional without it. The <strong>Pro</strong> layer (package signing with the device key, institution name on the report) is tied to the Apple ID signed in to the App Store and is verified locally through StoreKit only; nothing is sent to our servers. The signing key is created on the device (Secure Enclave where available) and never leaves it; the package carries only the public key and the signature.</p>
     <p>The voluntary <strong>support counter</strong> on the main screen is a local reminder only; it sends nothing and can be muted.</p>
     <h3>Responsibility for content</h3>
